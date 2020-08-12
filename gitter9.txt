@@ -1,0 +1,27 @@
+9 Knoten
+12 Kanten
+
+A 0 0
+B 1 0
+C 2 0
+D 0 1
+E 1 1
+F 2 1
+G 0 2
+H 1 2
+I 2 2
+
+AB A B 3
+BC B C 2
+AD A D 6
+BE B E 2
+CF C F 4
+DE D E 3
+EF E F 1
+DG D G 2
+EH E H 5
+FI F I 1
+GH G H 7
+HI H I 4
+
+
