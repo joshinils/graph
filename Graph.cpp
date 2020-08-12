@@ -70,7 +70,6 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
     {
         getline(fin, zeile);
         if(fin.eof()) { break; }
-        std::cout << "\"" << zeile << "\": " << zeile.empty() << std::endl;
     } while(zeile.empty());
 
     // lese alle Kanten aus
@@ -81,7 +80,6 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         // lese Kantenzeile indirekt, damit gewicht ggf. Defaultwert
         // bekommt, wenn keine Gewichte gegeben sind
         std::string fuss, kopf;
-        std::cout << "zeile:\"" << zeile << "\"" << std::endl;
         std::istringstream(zeile) >> kante.name >> fuss >> kopf >> kante.gewicht;
 
         // suche Knotenindizes zu den Namen
@@ -102,12 +100,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         do
         {
             getline(fin, zeile);
-            if(fin.eof())
-            {
-                breakFor = true;
-                break;
-            }
-            std::cout << "\"" << zeile << "\": " << zeile.empty() << std::endl;
+            if((breakFor = fin.eof())) { break; }
         } while(zeile.empty());
 
         if(breakFor) { break; }
@@ -218,22 +211,21 @@ std::ostream& operator<<(std::ostream& ostr, Graph const& graph)
     {
         ostr << std::setw(breite) << graph.knoten(u) << " :";
 
-        FUER_ALLE_NACHBARN(v, graph, u)
+        if(!graph.gerichtet())
         {
-            ostr << " -" << graph.kante(v->iKante) << "->" << graph.knoten(v->iKnoten).name;
+            FUER_ALLE_NACHBARN(v, graph, u)
+            {
+                ostr << " -" << graph.kante(v->iKante) << "->" << graph.knoten(v->iKnoten).name;
+            }
         }
-        ostr << '\n';
-
-        if(graph.gerichtet())
+        else
         {
-            ostr << std::setw(breite) << graph.knoten(u) << " :";
-
             FUER_ALLE_RNACHBARN(v, graph, u)
             {
                 ostr << " <-" << graph.kante(v->iKante) << "-" << graph.knoten(v->iKnoten).name;
             }
-            ostr << '\n';
         }
+        ostr << '\n';
     } // FUER_ALLE_KNOTEN( u )
 
     return ostr;

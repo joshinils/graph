@@ -1,0 +1,6 @@
+[submodule "plane"]
+	path = plane
+	url = https://github.com/joshinils/plane
+[submodule "olcPixelGameEngine"]
+	path = olcPixelGameEngine
+	url = https://github.com/OneLoneCoder/olcPixelGameEngine

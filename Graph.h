@@ -27,7 +27,7 @@
 
 /***  Hilfsklasse zur Verbindung von Knoten- und Kantenindizes  ***/
 
-class IndexPaar
+class IndexPaar : public std::pair<knotenIndex, size_t>
 {
 public:
     // Knotenindex
@@ -37,16 +37,16 @@ public:
     size_t iKante;
 
     // Standard- und Initialisierungskonstruktor
-    IndexPaar(knotenIndex argKno = KEIN_INDEX, knotenIndex argKan = KEIN_INDEX)
+    IndexPaar(knotenIndex argKno = KEIN_INDEX, size_t argKan = KEIN_INDEX)
         : iKnoten(argKno)
         , iKante(argKan)
     { }
 
-    // Vergleich miteinander
-    bool operator==(IndexPaar const& paar) const { return iKnoten == paar.iKnoten && iKante == paar.iKante; }
+    // // Vergleich miteinander
+    // bool operator==(IndexPaar const& paar) const { return iKnoten == paar.iKnoten && iKante == paar.iKante; }
 
-    // Vergleich miteinander
-    bool operator!=(IndexPaar const& paar) const { return !(*this == paar); }
+    // // Vergleich miteinander
+    // bool operator!=(IndexPaar const& paar) const { return !(*this == paar); }
 
 }; // class IndexPaar
 
@@ -111,7 +111,7 @@ public:
 
     // gib Objekt des Knotens mit Index v aus
     // wirf Exception, falls v zu groß
-    Knoten const& knoten(size_t v) const
+    Knoten const& knoten(knotenIndex v) const
     {
         if(v >= this->anzKnoten()) { throw "Graph::knoten(): Index zu gross!"; }
         return _knoten[v];
