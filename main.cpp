@@ -1,3 +1,4 @@
+#include "Aether.h"
 #include "Graph.h"
 #include <iostream>
 #include <stdexcept>
@@ -25,6 +26,14 @@ try
     Graph graph(dateiName, richtung);
 
     std::cout << graph << '\n';
+
+    double scale = 100;
+    Aether world(graph);
+    if(world.Construct((uint32_t)(16.0 * scale),
+                       (uint32_t)(9.0 * scale),
+                       (uint32_t)std::max(1.0, 120 / scale),
+                       (uint32_t)std::max(1.0, 120 / scale)))
+    { world.Start(); }
 
     return 0;
 

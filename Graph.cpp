@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include "Aether.h"
 #include <algorithm> // sort
 #include <fstream>
 #include <iomanip> // für setw()
@@ -190,6 +191,12 @@ knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knot
     return kantenIndex;
 
 } // setzeKante()
+
+void Graph::draw(Aether& aether) const
+{
+    aether.DrawCircle(0, 0, 100);
+    ;
+}
 
 
 /***  Ausgabe auf ostream  ***/

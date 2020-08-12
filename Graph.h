@@ -1,5 +1,6 @@
 #pragma once
 
+class Aether;
 #include "Kante.h"
 #include "Knoten.h"
 #include <iostream>
@@ -165,6 +166,8 @@ public:
     // hinzu, falls sie nicht existiert; gib ihren Index
     // zurück oder KEIN_INDEX, falls existent
     knotenIndex setzeKante(std::string const& name, knotenIndex u, knotenIndex v);
+
+    void draw(Aether& aether) const;
 
 }; // class Graph
 

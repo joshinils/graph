@@ -9,11 +9,21 @@ endif(UNIX)
 
 add_executable("${PROJECT_NAME}" 
     "main.cpp"
+    "Aether.h"
     "Graph.h"
     "Graph.cpp"
     "Knoten.h"
     "Kante.h"
+    "Aether.cpp"
+    "pge.cpp"
+	"olcPixelGameEngine/olcPixelGameEngine.h"
+	"plane/Plane.h"
+	"plane/Plane.cpp"
 )
+
+include_directories(olcPixelGameEngine)
+include_directories(plane)
+
 
 # set the startup project in visual studio, such that it is not ALL_BUILD and annoying
 if(MSVC)
