@@ -1,5 +1,5 @@
 #include "Graph.h"
-#include "sortieren.h" // für sortArray()
+#include <algorithm> // sort
 #include <fstream>
 #include <iomanip> // für setw()
 #include <sstream> // für istringstream
@@ -59,7 +59,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
     // nicht für das weitere Leben des Graph-Objekts. Der Zeit-Tradeoff
     // "bin. Suche vs. Hashing" ist auch bei großen Input-Graphen kaum
     // zu merken.
-    sortArray(_knoten);
+    std::sort(_knoten.begin(), _knoten.end());
 
     /***  lese Kanten aus  ***/
 
@@ -69,6 +69,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
     do
     {
         getline(fin, zeile);
+        if(fin.eof()) { break; }
+        std::cout << "\"" << zeile << "\": " << zeile.empty() << std::endl;
     } while(zeile.empty());
 
     // lese alle Kanten aus
@@ -79,6 +81,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         // lese Kantenzeile indirekt, damit gewicht ggf. Defaultwert
         // bekommt, wenn keine Gewichte gegeben sind
         std::string fuss, kopf;
+        std::cout << "zeile:\"" << zeile << "\"" << std::endl;
         std::istringstream(zeile) >> kante.name >> fuss >> kopf >> kante.gewicht;
 
         // suche Knotenindizes zu den Namen
@@ -86,7 +89,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         kante.iKopf = this->index(kopf);
 
         // setze Nachbarnmengen
-        _nachbarn[kante.iFuss].push_back(IndexPaar(kante.iKopf, i));
+        IndexPaar foo = IndexPaar(kante.iKopf, i);
+        if(_nachbarn.size() < kante.iFuss) { _nachbarn[kante.iFuss].push_back(foo); }
         if(_gerichtet) { _rnachbarn[kante.iKopf].push_back(IndexPaar(kante.iFuss, i)); }
         else
         {
@@ -94,7 +98,19 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         }
 
         // lese nächste Zeile
-        getline(fin, zeile);
+        bool breakFor = false;
+        do
+        {
+            getline(fin, zeile);
+            if(fin.eof())
+            {
+                breakFor = true;
+                break;
+            }
+            std::cout << "\"" << zeile << "\": " << zeile.empty() << std::endl;
+        } while(zeile.empty());
+
+        if(breakFor) { break; }
 
     } // for ( i )
 

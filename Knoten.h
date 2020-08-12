@@ -16,7 +16,11 @@ struct knotenIndex
         : index(i)
     { }
     operator size_t() const { return index; }
-    knotenIndex& operator++() { return *this; }
+    knotenIndex& operator++()
+    {
+        index++;
+        return *this;
+    }
     knotenIndex operator++(int)
     {
         knotenIndex tmp(*this);

@@ -13,7 +13,6 @@ add_executable("${PROJECT_NAME}"
     "Graph.cpp"
     "Knoten.h"
     "Kante.h"
-    "sortieren.h"
 )
 
 # set the startup project in visual studio, such that it is not ALL_BUILD and annoying
