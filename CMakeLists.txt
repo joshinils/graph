@@ -31,7 +31,7 @@ if(MSVC)
     set(CMAKE_CONFIGURATION_TYPES "Release;Debug;MinSizeRel;RelWithDebInfo")
 endif(MSVC)
 
-#jnl delete this if not needed, i dont need it for msvc
+#jnl delete this if not needed, i don't need it for msvc
 if(UNIX)
   find_package (PkgConfig REQUIRED)
 endif(UNIX)

@@ -32,7 +32,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
     _knoten.resize(nKnoten);
     _kanten.resize(nKanten);
     _nachbarn.resize(nKnoten);
-    if(gerichtet) _rnachbarn.resize(nKnoten);
+    if(gerichtet) _rNachbarn.resize(nKnoten);
     _gerichtet = gerichtet;
 
 #if TALK
@@ -42,13 +42,20 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
 #endif
     /***  lese Knoten aus  ***/
 
-    for(size_t i = 0; i < _knoten.size(); ++i)
+    FUER_ALLE_KNOTEN(kId, *this)
     {
-        Knoten& knoten = _knoten[i];
+        Knoten& knoten = _knoten[kId];
 
         fin >> knoten.name >> knoten.xKoo >> knoten.yKoo;
+        _minX = std::min(_minX, knoten.xKoo);
+        _minY = std::min(_minY, knoten.yKoo);
+        _maxX = std::max(_maxX, knoten.xKoo);
+        _maxY = std::max(_maxY, knoten.yKoo);
+
         getline(fin, dummy); // ignoriere Rest der Zeile
     }
+    _drawScale = std::min(abs(_maxX - _minX), abs(_maxY - _minY)) * 100;
+    std::cout << _drawScale << std::endl;
 
 #if TALK
     cout << "Knoten gelesen" << '\n';
@@ -88,9 +95,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         kante.iKopf = this->index(kopf);
 
         // setze Nachbarnmengen
-        IndexPaar foo = IndexPaar(kante.iKopf, i);
-        if(_nachbarn.size() < kante.iFuss) { _nachbarn[kante.iFuss].push_back(foo); }
-        if(_gerichtet) { _rnachbarn[kante.iKopf].push_back(IndexPaar(kante.iFuss, i)); }
+        if(_nachbarn.size() < kante.iFuss) { _nachbarn[kante.iFuss].push_back(IndexPaar(kante.iKopf, i)); }
+        if(_gerichtet) { _rNachbarn[kante.iKopf].push_back(IndexPaar(kante.iFuss, i)); }
         else
         {
             _nachbarn[kante.iKopf].push_back(IndexPaar(kante.iFuss, i));
@@ -181,7 +187,7 @@ knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knot
     // füge Kante ein
     _kanten.push_back(Kante(kantenName, u, v));
     _nachbarn[u].push_back(IndexPaar(v, kantenIndex));
-    if(_gerichtet) { _rnachbarn[v].push_back(IndexPaar(u, kantenIndex)); }
+    if(_gerichtet) { _rNachbarn[v].push_back(IndexPaar(u, kantenIndex)); }
     else
     {
         _nachbarn[v].push_back(IndexPaar(u, kantenIndex));
@@ -194,13 +200,41 @@ knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knot
 
 void Graph::draw(Aether& aether) const
 {
-    aether.DrawCircle(0, 0, 100);
-    ;
+    const double nodeScale = 2;
+    // draw nodes themselves
+    FUER_ALLE_KNOTEN(kId, *this)
+    {
+        auto k = this->knoten(kId);
+        aether.FillCircle(k.xKoo * _drawScale, k.yKoo * _drawScale, nodeScale * 8);
+    }
+
+    // draw edges
+    FUER_ALLE_KANTEN(eId, *this)
+    {
+        auto& e     = this->kante(eId);
+        auto& kFuss = this->knoten(e.iFuss);
+        auto start  = olc::vf2d(kFuss.xKoo, kFuss.yKoo) * _drawScale;
+
+        auto& kKopf = this->knoten(e.iKopf);
+        auto end    = olc::vf2d(kKopf.xKoo, kKopf.yKoo) * _drawScale;
+
+        aether.DrawArrow(start, end, 2, olc::RED, olc::YELLOW);
+    }
+
+    // draw nodes names on top
+    FUER_ALLE_KNOTEN(kId, *this)
+    {
+        auto k = this->knoten(kId);
+        aether.DrawString(k.xKoo * _drawScale - 3.5 * nodeScale,
+                          k.yKoo * _drawScale - 3.5 * nodeScale,
+                          k.name,
+                          olc::DARK_GREY,
+                          nodeScale);
+    }
 }
 
 
 /***  Ausgabe auf ostream  ***/
-
 std::ostream& operator<<(std::ostream& ostr, Graph const& graph)
 {
     ostr << "Graph:  " << graph.anzKnoten() << " Knoten, " << graph.anzKanten() << " Kanten" << '\n';

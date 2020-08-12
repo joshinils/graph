@@ -24,7 +24,7 @@ class Aether;
 // Durchlaufschleife über die Rückwärts-Nachbarn u des Knotens v
 // Der aktuelle Knoten wird mit *u oder u->... angesprochen.
 #define FUER_ALLE_RNACHBARN(u, graph, v) \
-    for(nachbarnMenge::const_iterator u = (graph).rnachbarn(v).begin(); u != (graph).rnachbarn(v).end(); ++u)
+    for(nachbarnMenge::const_iterator u = (graph).rNachbarn(v).begin(); u != (graph).rNachbarn(v).end(); ++u)
 
 /***  Hilfsklasse zur Verbindung von Knoten- und Kantenindizes  ***/
 
@@ -38,9 +38,9 @@ public:
     size_t iKante;
 
     // Standard- und Initialisierungskonstruktor
-    IndexPaar(knotenIndex argKno = KEIN_INDEX, size_t argKan = KEIN_INDEX)
-        : iKnoten(argKno)
-        , iKante(argKan)
+    IndexPaar(knotenIndex argKnoten = KEIN_INDEX, size_t argKante = KEIN_INDEX)
+        : iKnoten(argKnoten)
+        , iKante(argKante)
     { }
 
     // // Vergleich miteinander
@@ -71,13 +71,17 @@ class Graph
     std::vector<nachbarnMenge> _nachbarn;
 
     // Rückwärts-Nachbarnmengen aller Knoten
-    std::vector<nachbarnMenge> _rnachbarn;
+    std::vector<nachbarnMenge> _rNachbarn;
 
     // ist Objekt gerichtet?
     bool _gerichtet;
 
     // Array der Kanten
     std::vector<Kante> _kanten;
+
+    double _minX = std::numeric_limits<double>::max(), _maxX = std::numeric_limits<double>::min(),
+           _minY = std::numeric_limits<double>::max(), _maxY = std::numeric_limits<double>::min();
+    double _drawScale = 1;
 
 public:
     /***  öffentliche Konstanten  ***/
@@ -92,7 +96,7 @@ public:
     Graph(size_t anzKnoten, bool gerichtet)
         : _knoten(anzKnoten)
         , _nachbarn(anzKnoten)
-        , _rnachbarn(gerichtet ? anzKnoten : 0)
+        , _rNachbarn(gerichtet ? anzKnoten : 0)
         , _gerichtet(gerichtet)
     { }
 
@@ -130,18 +134,18 @@ public:
     // wirf Exception, falls v ungültig
     nachbarnMenge const& nachbarn(size_t v) const
     {
-        if(v >= this->anzKnoten()) { throw "Graph::nachbarn(): Index zu gross!"; }
+        if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
         return _nachbarn[v];
     }
 
     // gib Rückwärts-Nachbarnmenge des Knotens v aus
     // wirf Exception, falls v ungültig
-    nachbarnMenge const& rnachbarn(size_t v) const
+    nachbarnMenge const& rNachbarn(size_t v) const
     {
-        if(v >= this->anzKnoten()) { throw "Graph::rnachbarn(): Index zu gross!"; }
+        if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
 
         // Objekt ungerichtet -> rückwärts = vorwärts
-        return _gerichtet ? _rnachbarn[v] : _nachbarn[v];
+        return _gerichtet ? _rNachbarn[v] : _nachbarn[v];
     }
 
     // gib Vorwärts-Grad des Knotens v aus
@@ -150,7 +154,7 @@ public:
 
     // gib Rückwärts-Grad des Knotens v aus
     // wirf Exception, falls v ungültig
-    size_t rgrad(size_t v) const { return this->rnachbarn(v).size(); }
+    size_t rGrad(size_t v) const { return this->rNachbarn(v).size(); }
 
     // gib Index der Kante (u,v), falls sie existiert
     // KEIN_INDEX, falls nicht

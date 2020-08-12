@@ -24,9 +24,9 @@ bool Aether::OnUserUpdate(float fElapsedTime)
     Plane::OnUserUpdate(fElapsedTime);
     this->_graph.draw(*this);
 
-    auto mouseX{ stocx(GetMouseX()) };
-    auto mouseY{ stocy(GetMouseY()) };
-    FillCircle(mouseX, mouseY, 10, olc::RED);
+    // auto mouseX{ stocx(GetMouseX()) };
+    // auto mouseY{ stocy(GetMouseY()) };
+    // FillCircle(mouseX, mouseY, 10, olc::RED);
     // size_t segments = 100;
     // auto f          = [&](size_t arg) {
     //     double t   = arg * 2 * M_PI / segments;
