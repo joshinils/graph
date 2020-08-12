@@ -72,7 +72,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
     } while(zeile.empty());
 
     // lese alle Kanten aus
-    for(size_t i = 0; i < _kanten.size(); ++i)
+    for(knotenIndex i = 0; i < _kanten.size(); ++i)
     {
         Kante& kante = _kanten[i];
 
@@ -82,8 +82,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         std::istringstream(zeile) >> kante.name >> fuss >> kopf >> kante.gewicht;
 
         // suche Knotenindizes zu den Namen
-        kante.iFuss = index(fuss);
-        kante.iKopf = index(kopf);
+        kante.iFuss = this->index(fuss);
+        kante.iKopf = this->index(kopf);
 
         // setze Nachbarnmengen
         _nachbarn[kante.iFuss].push_back(IndexPaar(kante.iKopf, i));
@@ -113,9 +113,9 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
 
 // gib Index der Kante (u,v), falls sie existiert
 // KEIN_INDEX, falls nicht
-size_t Graph::index(size_t u, size_t v) const
+knotenIndex Graph::index(knotenIndex u, knotenIndex v) const
 {
-    if(u < anzKnoten() && v < anzKnoten())
+    if(u < this->anzKnoten() && v < this->anzKnoten())
     {
         FUER_ALLE_NACHBARN(w, *this, u)
         if(w->iKnoten == v) { return w->iKante; }
@@ -126,11 +126,11 @@ size_t Graph::index(size_t u, size_t v) const
 
 
 // gib Index des Knotens zum Namen aus;
-// KEIN_INDEX, falls kein solcher Knoten exitiert
-size_t Graph::index(std::string const& name) const
+// KEIN_INDEX, falls kein solcher Knoten existiert
+knotenIndex Graph::index(std::string const& knotenName) const
 {
     // name nicht enthalten
-    if(name < _knoten[0].name || name > _knoten.back().name) { return KEIN_INDEX; }
+    if(knotenName < _knoten[0].name || knotenName > _knoten.back().name) { return KEIN_INDEX; }
 
     /*** binäre Suche  ***/
 
@@ -141,14 +141,14 @@ size_t Graph::index(std::string const& name) const
     {
         size_t mitte = (li + re) >> 1;
 
-        if(name <= _knoten[mitte].name) { re = mitte; }
+        if(knotenName <= _knoten[mitte].name) { re = mitte; }
         else
         {
             li = mitte + 1;
         }
     }
 
-    if(_knoten[li].name == name) { return li; }
+    if(_knoten[li].name == knotenName) { return li; }
     else
     {
         return KEIN_INDEX;
@@ -160,25 +160,25 @@ size_t Graph::index(std::string const& name) const
 // füge neue Kante (u,v) bzw. {u,v} mit name zum Objekt
 // hinzu, falls sie nicht existiert; gib ihren Index
 // zurück oder KEIN_INDEX, falls existent
-size_t Graph::setzeKante(std::string const& name, size_t u, size_t v)
+knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knotenIndex v)
 {
     // existiert Knotenpaar schon?
-    if(KEIN_INDEX != index(u, v)) { return KEIN_INDEX; }
+    if(KEIN_INDEX != this->index(u, v)) { return KEIN_INDEX; }
 
     // nächster freier Kantenindex
-    size_t e = _kanten.size();
+    size_t kantenIndex = _kanten.size();
 
     // füge Kante ein
-    _kanten.push_back(Kante(name, u, v));
-    _nachbarn[u].push_back(IndexPaar(v, e));
-    if(_gerichtet) { _rnachbarn[v].push_back(IndexPaar(u, e)); }
+    _kanten.push_back(Kante(kantenName, u, v));
+    _nachbarn[u].push_back(IndexPaar(v, kantenIndex));
+    if(_gerichtet) { _rnachbarn[v].push_back(IndexPaar(u, kantenIndex)); }
     else
     {
-        _nachbarn[v].push_back(IndexPaar(u, e));
+        _nachbarn[v].push_back(IndexPaar(u, kantenIndex));
     }
 
     // gib Kantenindex zurück
-    return e;
+    return kantenIndex;
 
 } // setzeKante()
 
@@ -193,7 +193,9 @@ std::ostream& operator<<(std::ostream& ostr, Graph const& graph)
     // berechne max. Breite der Knotenname
     size_t breite = 0;
     FUER_ALLE_KNOTEN(u, graph)
-    if(breite < graph.knoten(u).name.size()) breite = graph.knoten(u).name.size();
+    {
+        if(breite < graph.knoten(u).name.size()) breite = graph.knoten(u).name.size();
+    }
 
     // gebe die Knoten mit ihren Nachbarnmengen aus
     FUER_ALLE_KNOTEN(u, graph)

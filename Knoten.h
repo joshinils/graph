@@ -1,5 +1,4 @@
-#ifndef KNOTEN_H
-#define KNOTEN_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -8,6 +7,25 @@
  * Klasse für Graphknoten
  * Kann nach Bedarf erweitert oder abgeleitet werden
  */
+
+// size_t but named differently
+struct knotenIndex
+{
+    size_t index;
+    knotenIndex(size_t i = 0)
+        : index(i)
+    { }
+    operator size_t() const { return index; }
+    knotenIndex& operator++() { return *this; }
+    knotenIndex operator++(int)
+    {
+        knotenIndex tmp(*this);
+        operator++();
+        return tmp;
+    }
+    bool operator==(knotenIndex const& other) const { return this->index == other.index; }
+    bool operator!=(knotenIndex const& other) const { return this->index != other.index; }
+};
 
 class Knoten
 {
@@ -45,6 +63,3 @@ public:
     }
 
 }; // class Knoten
-
-
-#endif // KNOTEN_H

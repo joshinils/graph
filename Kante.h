@@ -1,14 +1,12 @@
-#ifndef KANTE_H
-#define KANTE_H
+#pragma once
 
+#include "Knoten.h"
 #include <climits>
 #include <iostream>
 #include <string>
 
-
 // ungültiger Sonderwert für Indizes
-size_t const KEIN_INDEX = UINT_MAX;
-
+knotenIndex const KEIN_INDEX = UINT_MAX;
 
 /**
  * Klasse für Graphkanten
@@ -24,7 +22,7 @@ public:
     std::string name;
 
     // Indizes der Endknoten
-    size_t iFuss, iKopf;
+    knotenIndex iFuss, iKopf;
 
     // Gewicht der Kante
     double gewicht;
@@ -32,7 +30,10 @@ public:
     /***  Konstruktoren  ***/
 
     // Standard- und Initialisierungskonstruktor
-    Kante(std::string const& argName = "", size_t argFuss = KEIN_INDEX, size_t argKopf = KEIN_INDEX, double argGew = 1)
+    Kante(std::string const& argName = "",
+          knotenIndex argFuss        = KEIN_INDEX,
+          knotenIndex argKopf        = KEIN_INDEX,
+          double argGew              = 1)
         : name(argName)
         , iFuss(argFuss)
         , iKopf(argKopf)
@@ -40,13 +41,9 @@ public:
     { }
 
     /***  Ausgabe auf ostream  ***/
-
     friend std::ostream& operator<<(std::ostream& ostr, Kante const& kante)
     {
         return ostr << kante.name << "[" << kante.gewicht << "]";
     }
 
 }; // class Kante
-
-
-#endif // KANTE_H
