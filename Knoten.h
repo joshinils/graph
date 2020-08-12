@@ -2,9 +2,7 @@
 #define KNOTEN_H
 
 #include <iostream>
-
-using namespace std ;
-
+#include <string>
 
 /**
  * Klasse für Graphknoten
@@ -14,45 +12,39 @@ using namespace std ;
 class Knoten
 {
 public:
-/***  öffentliche Attribute  ***/
+    /***  öffentliche Attribute  ***/
 
-	// Name des Knotens
-	string name ;
+    // Name des Knotens
+    std::string name;
 
-	// Koordinaten des Knotens
-	double xKoo, yKoo ;
+    // Koordinaten des Knotens
+    double xKoo, yKoo;
 
-/***  Konstruktoren  ***/
+    /***  Konstruktoren  ***/
 
-	// Standard- und Initialisierungskonstruktor
-	Knoten ( string const& argName = "", double argX = 0, double argY = 0 )
-		: name( argName ),
-		  xKoo( argX    ),
-		  yKoo( argY    )
-	{ }
+    // Standard- und Initialisierungskonstruktor
+    Knoten(std::string const& argName = "", double argX = 0, double argY = 0)
+        : name(argName)
+        , xKoo(argX)
+        , yKoo(argY)
+    { }
 
-/***  Vergleichsoperatoren  ***/
+    /***  Vergleichsoperatoren  ***/
 
-	// lexikografischer Vergleich
-	bool operator < ( Knoten const& knoten ) const
-	{
-		return name < knoten.name ;
-	}
+    // lexikografischer Vergleich
+    bool operator<(Knoten const& knoten) const { return name < knoten.name; }
 
-	// lexikografischer Vergleich
-	bool operator == ( Knoten const& knoten ) const
-	{
-		return name == knoten.name ;
-	}
+    // lexikografischer Vergleich
+    bool operator==(Knoten const& knoten) const { return name == knoten.name; }
 
-/***  Ausgabe auf ostream  ***/
+    /***  Ausgabe auf ostream  ***/
 
-	friend ostream& operator << ( ostream& ostr, Knoten const& knoten )
-	{
-		return ostr << knoten.name << "(" << knoten.xKoo << "," << knoten.yKoo << ")" ;
-	}
+    friend std::ostream& operator<<(std::ostream& ostr, Knoten const& knoten)
+    {
+        return ostr << knoten.name << "(" << knoten.xKoo << "," << knoten.yKoo << ")";
+    }
 
-} ;  // class Knoten
+}; // class Knoten
 
 
-#endif   // KNOTEN_H
+#endif // KNOTEN_H

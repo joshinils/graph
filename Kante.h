@@ -1,12 +1,13 @@
 #ifndef KANTE_H
 #define KANTE_H
 
+#include <climits>
 #include <iostream>
-using namespace std ;
+#include <string>
 
 
 // ungültiger Sonderwert für Indizes
-size_t const KEIN_INDEX = UINT_MAX ;
+size_t const KEIN_INDEX = UINT_MAX;
 
 
 /**
@@ -17,36 +18,35 @@ size_t const KEIN_INDEX = UINT_MAX ;
 class Kante
 {
 public:
-/***  öffentliche Attribute  ***/
+    /***  öffentliche Attribute  ***/
 
-	// Name der Kante
-	string name ;
+    // Name der Kante
+    std::string name;
 
-	// Indizes der Endknoten
-	size_t iFuss, iKopf ;
+    // Indizes der Endknoten
+    size_t iFuss, iKopf;
 
-	// Gewicht der Kante
-	double gewicht ;
+    // Gewicht der Kante
+    double gewicht;
 
-/***  Konstruktoren  ***/
+    /***  Konstruktoren  ***/
 
-	// Standard- und Initialisierungskonstruktor
-	Kante ( string const& argName = "", size_t argFuss = KEIN_INDEX,
-			size_t argKopf = KEIN_INDEX, double argGew = 1 )
-		: name   ( argName ),
-		  iFuss  ( argFuss ),
-		  iKopf  ( argKopf ),
-		  gewicht( argGew  )
-	{ }
+    // Standard- und Initialisierungskonstruktor
+    Kante(std::string const& argName = "", size_t argFuss = KEIN_INDEX, size_t argKopf = KEIN_INDEX, double argGew = 1)
+        : name(argName)
+        , iFuss(argFuss)
+        , iKopf(argKopf)
+        , gewicht(argGew)
+    { }
 
-/***  Ausgabe auf ostream  ***/
+    /***  Ausgabe auf ostream  ***/
 
-	friend ostream& operator << ( ostream& ostr, Kante const& kante )
-	{
-		return ostr << kante.name << "[" << kante.gewicht << "]" ;
-	}
+    friend std::ostream& operator<<(std::ostream& ostr, Kante const& kante)
+    {
+        return ostr << kante.name << "[" << kante.gewicht << "]";
+    }
 
-} ;  // class Kante
+}; // class Kante
 
 
-#endif  // KANTE_H
+#endif // KANTE_H

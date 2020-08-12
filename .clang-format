@@ -4,14 +4,14 @@ Language: Cpp
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 
 Standard: c++17
-AccessModifierOffset: -2
-TabWidth: 2
-IndentWidth: 2
-ConstructorInitializerIndentWidth: 2
+AccessModifierOffset: -4
+TabWidth: 4
+IndentWidth: 4
+ConstructorInitializerIndentWidth: 4
 UseTab: Never
 
 # jnl this may be shortened, but this will effect a lot of the formatting
-ColumnLimit: 200
+ColumnLimit: 120
 
 #jnl maybe even 0
 SpacesBeforeTrailingComments: 1
