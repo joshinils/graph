@@ -38,7 +38,7 @@ public:
     size_t iKante;
 
     // Standard- und Initialisierungskonstruktor
-    IndexPaar(knotenIndex argKnoten = KEIN_INDEX, size_t argKante = KEIN_INDEX)
+    IndexPaar(knotenIndex argKnoten = knotenIndex::KEIN_INDEX, size_t argKante = KEIN_INDEX)
         : iKnoten(argKnoten)
         , iKante(argKante)
     { }
@@ -158,7 +158,7 @@ public:
 
     // gib Index der Kante (u,v), falls sie existiert
     // KEIN_INDEX, falls nicht
-    knotenIndex index(knotenIndex u, knotenIndex v) const;
+    kantenIndex index(knotenIndex u, knotenIndex v) const;
 
     // gib Index des Knotens zum Namen aus;
     // KEIN_INDEX, falls kein solcher Knoten existiert
@@ -169,7 +169,7 @@ public:
     // füge neue Kante (u,v) bzw. {u,v} mit name zum Objekt
     // hinzu, falls sie nicht existiert; gib ihren Index
     // zurück oder KEIN_INDEX, falls existent
-    knotenIndex setzeKante(std::string const& name, knotenIndex u, knotenIndex v);
+    kantenIndex setzeKante(std::string const& name, knotenIndex u, knotenIndex v);
 
     void draw(Aether& aether) const;
 

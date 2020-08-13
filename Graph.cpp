@@ -150,12 +150,12 @@ knotenIndex Graph::index(std::string const& knotenName) const
 
     /*** binäre Suche  ***/
 
-    size_t li = 0;
-    size_t re = _knoten.size() - 1;
+    knotenIndex li = 0;
+    knotenIndex re = _knoten.size() - 1;
 
     while(li < re)
     {
-        size_t mitte = (li + re) >> 1;
+        knotenIndex mitte = (li + re) >> 1;
 
         if(knotenName <= _knoten[mitte].name) { re = mitte; }
         else
@@ -176,7 +176,7 @@ knotenIndex Graph::index(std::string const& knotenName) const
 // füge neue Kante (u,v) bzw. {u,v} mit name zum Objekt
 // hinzu, falls sie nicht existiert; gib ihren Index
 // zurück oder KEIN_INDEX, falls existent
-knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knotenIndex v)
+kantenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knotenIndex v)
 {
     // existiert Knotenpaar schon?
     if(KEIN_INDEX != this->index(u, v)) { return KEIN_INDEX; }
@@ -200,37 +200,27 @@ knotenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knot
 
 void Graph::draw(Aether& aether) const
 {
-    const double nodeScale = 2;
     // draw nodes themselves
-    FUER_ALLE_KNOTEN(kId, *this)
-    {
-        auto k = this->knoten(kId);
-        aether.FillCircle(k.xKoo * _drawScale, k.yKoo * _drawScale, nodeScale * 8);
-    }
+    FUER_ALLE_KNOTEN(kId, *this) { this->knoten(kId).drawCirc(aether, this->_drawScale); }
 
     // draw edges
     FUER_ALLE_KANTEN(eId, *this)
     {
-        auto& e     = this->kante(eId);
-        auto& kFuss = this->knoten(e.iFuss);
-        auto start  = olc::vf2d(kFuss.xKoo, kFuss.yKoo) * _drawScale;
+        Kante const& e      = this->kante(eId);
+        Knoten const& kFuss = this->knoten(e.iFuss);
+        olc::vf2d start     = olc::vf2d(kFuss.xKoo, kFuss.yKoo) * _drawScale;
 
-        auto& kKopf = this->knoten(e.iKopf);
-        auto end    = olc::vf2d(kKopf.xKoo, kKopf.yKoo) * _drawScale;
+        Knoten const& kKopf  = this->knoten(e.iKopf);
+        olc::vf2d const& end = olc::vf2d(kKopf.xKoo, kKopf.yKoo) * _drawScale;
 
-        aether.DrawArrow(start, end, 2, olc::RED, olc::YELLOW);
+        olc::vf2d dir = (start - end).norm();
+
+        aether.DrawArrow(
+        start - Knoten::nodeScale * 8 * dir, end + Knoten::nodeScale * 8 * dir, 1 + e.gewicht, olc::RED, olc::GREEN);
     }
 
     // draw nodes names on top
-    FUER_ALLE_KNOTEN(kId, *this)
-    {
-        auto k = this->knoten(kId);
-        aether.DrawString(k.xKoo * _drawScale - 3.5 * nodeScale,
-                          k.yKoo * _drawScale - 3.5 * nodeScale,
-                          k.name,
-                          olc::DARK_GREY,
-                          nodeScale);
-    }
+    FUER_ALLE_KNOTEN(kId, *this) { this->knoten(kId).drawName(aether, this->_drawScale); }
 }
 
 

@@ -57,12 +57,14 @@ olc::vf2d turnVec(olc::vf2d const& in, float angle)
 
 void Aether::DrawArrow(olc::vf2d start, olc::vf2d end, double width, olc::Pixel colorTo, olc::Pixel colorFrom)
 {
+    end += width / 2 * (start - end).norm();
     olc::vf2d lineDirection = (start - end);
+
     for(float total = std::min(100.f, lineDirection.dot(lineDirection)), i = 0; i < total; ++i)
     {
         //std::cout << "total " << total << " i " << i << " i/t " << i/total << std::endl;
         FillLine(start - lineDirection * (i / total),
-                 end + lineDirection * (1 - ((i + 1) / total)),
+                 end + lineDirection * (1 - (i + 1) / total),
                  width,
                  average(colorTo, colorFrom, (i / (total)), (1. - i / total)));
     }

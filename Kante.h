@@ -1,12 +1,9 @@
 #pragma once
 
+#include "Index.h"
 #include "Knoten.h"
-#include <climits>
 #include <iostream>
 #include <string>
-
-// ungültiger Sonderwert für Indizes
-knotenIndex const KEIN_INDEX = UINT_MAX;
 
 /**
  * Klasse für Graphkanten
