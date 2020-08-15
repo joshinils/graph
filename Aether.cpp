@@ -1,11 +1,13 @@
 #include "Aether.h"
 #include <iostream>
 
+#include "Graph.h"
+
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-Aether::Aether(Graph const& g)
-    : _graph(g)
+Aether::Aether(std::unique_ptr<Graph> g)
+    : _graph(std::move(g))
 { }
 
 bool Aether::OnUserCreate()
@@ -22,7 +24,7 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 {
     this->_totalElapsedTime += fElapsedTime;
     Plane::OnUserUpdate(fElapsedTime);
-    this->_graph.draw(*this);
+    this->_graph->draw(*this);
 
     // auto mouseX{ stocx(GetMouseX()) };
     // auto mouseY{ stocy(GetMouseY()) };

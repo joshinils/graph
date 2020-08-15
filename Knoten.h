@@ -11,7 +11,6 @@
  */
 
 
-
 class Knoten
 {
 public:
@@ -23,7 +22,7 @@ public:
     // Koordinaten des Knotens
     double xKoo, yKoo;
 
-    const static double nodeScale = 2;
+    constexpr static double nodeScale = 2;
 
     /***  Konstruktoren  ***/
 

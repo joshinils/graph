@@ -1,3 +1,3 @@
 #include "Index.h"
 
-Index::KEIN_INDEX(UINT_MAX);
+const Index Index::KEIN_INDEX(UINT_MAX);

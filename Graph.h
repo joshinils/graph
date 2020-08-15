@@ -1,6 +1,7 @@
 #pragma once
 
 class Aether;
+#include "Aether.h"
 #include "Kante.h"
 #include "Knoten.h"
 #include <iostream>
@@ -11,7 +12,7 @@ class Aether;
 // size_t const KEIN_INDEX = UINT_MAX ;
 
 // Durchlaufschleife über alle Knotenindizes
-#define FUER_ALLE_KNOTEN(u, graph) for(knotenIndex u = 0; u < (graph).anzKnoten(); ++u)
+#define FUER_ALLE_KNOTEN(u, graph) for(knotenIndex u(0ULL); u < (graph).anzKnoten(); ++u)
 
 // Durchlaufschleife über alle Kantenindizes
 #define FUER_ALLE_KANTEN(e, graph) for(size_t e = 0; e < (graph).anzKanten(); ++e)
@@ -28,17 +29,18 @@ class Aether;
 
 /***  Hilfsklasse zur Verbindung von Knoten- und Kantenindizes  ***/
 
-class IndexPaar : public std::pair<knotenIndex, size_t>
+
+class IndexPaar //: public std::pair<knotenIndex, size_t>
 {
 public:
     // Knotenindex
     knotenIndex iKnoten;
 
     // Kantenindex
-    size_t iKante;
+    kantenIndex iKante;
 
     // Standard- und Initialisierungskonstruktor
-    IndexPaar(knotenIndex argKnoten = knotenIndex::KEIN_INDEX, size_t argKante = KEIN_INDEX)
+    IndexPaar(knotenIndex argKnoten = knotenIndex::KEIN_INDEX, size_t argKante = kantenIndex::KEIN_INDEX)
         : iKnoten(argKnoten)
         , iKante(argKante)
     { }

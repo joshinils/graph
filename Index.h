@@ -1,7 +1,10 @@
 #pragma once
 
+class Kante;
+class Knoten;
 #include <climits> // UINT_MAX
 #include <cstddef> // size_t
+#include <vector>
 
 // size_t but named differently
 struct Index
@@ -11,9 +14,6 @@ struct Index
 
     size_t idx;
     Index(size_t i = 0)
-        : idx(i)
-    { }
-    Index(int i = 0)
         : idx(i)
     { }
 
@@ -50,11 +50,11 @@ struct Index
         return *this;
     }
 
-    friend Index operator+(Index lhs, const Index& rhs)
-    {
-        lhs += rhs;
-        return lhs;
-    }
+    // friend Index operator+(Index lhs, const Index& rhs)
+    // {
+    //     lhs += rhs;
+    //     return lhs;
+    // }
 
     bool operator==(Index const& other) const { return this->idx == other.idx; }
     bool operator!=(Index const& other) const { return this->idx != other.idx; }
@@ -62,6 +62,20 @@ struct Index
 
 
 struct knotenIndex : public Index
-{ };
+{
+    using Index::Index;
+    knotenIndex(const Index& idx)
+        : Index(idx)
+    { }
+};
 struct kantenIndex : public Index
-{ };
+{
+    using Index::Index;
+    kantenIndex(const Index& idx)
+        : Index(idx)
+    { }
+
+    kantenIndex(std::vector<Kante>::size_type i)
+        : Index(i)
+    { }
+};

@@ -129,7 +129,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
 
 // gib Index der Kante (u,v), falls sie existiert
 // KEIN_INDEX, falls nicht
-knotenIndex Graph::index(knotenIndex u, knotenIndex v) const
+kantenIndex Graph::index(knotenIndex u, knotenIndex v) const
 {
     if(u < this->anzKnoten() && v < this->anzKnoten())
     {
@@ -137,7 +137,7 @@ knotenIndex Graph::index(knotenIndex u, knotenIndex v) const
         if(w->iKnoten == v) { return w->iKante; }
     }
 
-    return KEIN_INDEX;
+    return kantenIndex::KEIN_INDEX;
 }
 
 
@@ -146,11 +146,11 @@ knotenIndex Graph::index(knotenIndex u, knotenIndex v) const
 knotenIndex Graph::index(std::string const& knotenName) const
 {
     // name nicht enthalten
-    if(knotenName < _knoten[0].name || knotenName > _knoten.back().name) { return KEIN_INDEX; }
+    if(knotenName < _knoten[0].name || knotenName > _knoten.back().name) { return knotenIndex::KEIN_INDEX; }
 
     /*** binäre Suche  ***/
 
-    knotenIndex li = 0;
+    knotenIndex li(0);
     knotenIndex re = _knoten.size() - 1;
 
     while(li < re)
@@ -167,7 +167,7 @@ knotenIndex Graph::index(std::string const& knotenName) const
     if(_knoten[li].name == knotenName) { return li; }
     else
     {
-        return KEIN_INDEX;
+        return knotenIndex::KEIN_INDEX;
     }
 
 } // Graph::index()
@@ -179,22 +179,22 @@ knotenIndex Graph::index(std::string const& knotenName) const
 kantenIndex Graph::setzeKante(std::string const& kantenName, knotenIndex u, knotenIndex v)
 {
     // existiert Knotenpaar schon?
-    if(KEIN_INDEX != this->index(u, v)) { return KEIN_INDEX; }
+    if(kantenIndex::KEIN_INDEX != this->index(u, v)) { return kantenIndex::KEIN_INDEX; }
 
     // nächster freier Kantenindex
-    size_t kantenIndex = _kanten.size();
+    kantenIndex kantenIdx(_kanten.size());
 
     // füge Kante ein
     _kanten.push_back(Kante(kantenName, u, v));
-    _nachbarn[u].push_back(IndexPaar(v, kantenIndex));
-    if(_gerichtet) { _rNachbarn[v].push_back(IndexPaar(u, kantenIndex)); }
+    _nachbarn[u].push_back(IndexPaar(v, kantenIdx));
+    if(_gerichtet) { _rNachbarn[v].push_back(IndexPaar(u, kantenIdx)); }
     else
     {
-        _nachbarn[v].push_back(IndexPaar(u, kantenIndex));
+        _nachbarn[v].push_back(IndexPaar(u, kantenIdx));
     }
 
     // gib Kantenindex zurück
-    return kantenIndex;
+    return kantenIdx;
 
 } // setzeKante()
 
