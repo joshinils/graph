@@ -8,14 +8,12 @@ class Aether;
 #include <string>
 #include <vector>
 
-// ungültiger Sonderwert für Indizes wird in Knoten.h definiert
-// size_t const KEIN_INDEX = UINT_MAX ;
 
 // Durchlaufschleife über alle Knotenindizes
-#define FUER_ALLE_KNOTEN(u, graph) for(knotenIndex u(0ULL); u < (graph).anzKnoten(); ++u)
+#define FUER_ALLE_KNOTEN(u, graph) for(knotenIndex u = 0; u < (graph).anzKnoten(); ++u)
 
 // Durchlaufschleife über alle Kantenindizes
-#define FUER_ALLE_KANTEN(e, graph) for(size_t e = 0; e < (graph).anzKanten(); ++e)
+#define FUER_ALLE_KANTEN(e, graph) for(kantenIndex e = 0; e < (graph).anzKanten(); ++e)
 
 // Durchlaufschleife über die Vorwärts-Nachbarn u des Knotens v.
 // Der aktuelle Knoten wird mit *u oder u->... angesprochen.
@@ -40,7 +38,7 @@ public:
     kantenIndex iKante;
 
     // Standard- und Initialisierungskonstruktor
-    IndexPaar(knotenIndex argKnoten = knotenIndex::KEIN_INDEX, size_t argKante = kantenIndex::KEIN_INDEX)
+    IndexPaar(knotenIndex argKnoten = knotenIndex::KEIN_INDEX, kantenIndex argKante = kantenIndex::KEIN_INDEX)
         : iKnoten(argKnoten)
         , iKante(argKante)
     { }
@@ -126,7 +124,7 @@ public:
 
     // gib Objekt der Kante mit Index e aus
     // wirf Exception, falls e zu groß
-    Kante const& kante(size_t e) const
+    Kante const& kante(kantenIndex e) const
     {
         if(e >= this->anzKanten()) { throw "Graph::kante(): Index zu gross!"; }
         return _kanten[e];
@@ -134,7 +132,7 @@ public:
 
     // gib Vorwärts-Nachbarnmenge des Knotens v aus
     // wirf Exception, falls v ungültig
-    nachbarnMenge const& nachbarn(size_t v) const
+    nachbarnMenge const& nachbarn(knotenIndex v) const
     {
         if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
         return _nachbarn[v];

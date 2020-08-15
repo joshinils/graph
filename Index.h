@@ -74,8 +74,4 @@ struct kantenIndex : public Index
     kantenIndex(const Index& idx)
         : Index(idx)
     { }
-
-    kantenIndex(std::vector<Kante>::size_type i)
-        : Index(i)
-    { }
 };
