@@ -29,7 +29,7 @@ struct Index
         return *this;
     }
 
-    operator size_t() const { return idx; }
+    explicit operator size_t() const { return idx; }
 
     Index& operator++()
     {
@@ -58,6 +58,20 @@ struct Index
 
     bool operator==(Index const& other) const { return this->idx == other.idx; }
     bool operator!=(Index const& other) const { return this->idx != other.idx; }
+    bool operator<(Index const& other) const { return this->idx < other.idx; }
+    bool operator<(size_t const& other) const { return this->idx < other; }
+    bool operator>(Index const& other) const { return this->idx > other.idx; }
+    bool operator>(size_t const& other) const { return this->idx > other; }
+
+    bool operator<=(Index const& other) const { return this->idx <= other.idx; }
+    bool operator<=(size_t const& other) const { return this->idx <= other; }
+    bool operator>=(Index const& other) const { return this->idx >= other.idx; }
+    bool operator>=(size_t const& other) const { return this->idx >= other; }
+
+    friend bool operator<(size_t const& l, Index const& r) { return r > l; }
+    friend bool operator>(size_t const& l, Index const& r) { return r < l; }
+    friend bool operator<=(size_t const& l, Index const& r) { return r >= l; }
+    friend bool operator>=(size_t const& l, Index const& r) { return r <= l; }
 };
 
 
@@ -67,6 +81,8 @@ struct knotenIndex : public Index
     knotenIndex(const Index& idx)
         : Index(idx)
     { }
+
+    operator std::vector<Knoten>::size_type() const { return idx; }
 };
 struct kantenIndex : public Index
 {
@@ -74,4 +90,6 @@ struct kantenIndex : public Index
     kantenIndex(const Index& idx)
         : Index(idx)
     { }
+
+    operator std::vector<Kante>::size_type() const { return idx; }
 };

@@ -140,7 +140,7 @@ public:
 
     // gib Rückwärts-Nachbarnmenge des Knotens v aus
     // wirf Exception, falls v ungültig
-    nachbarnMenge const& rNachbarn(size_t v) const
+    nachbarnMenge const& rNachbarn(knotenIndex v) const
     {
         if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
 
