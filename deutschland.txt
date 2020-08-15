@@ -1,0 +1,545 @@
+185 Knoten
+354 Kanten
+
+  Essen                      6.998592   51.449581   
+  Duesseldorf                6.778409   51.221481   
+  Krefeld                    6.566545   51.338600   
+  Koeln1                     6.954389   50.935459   
+  Koeln2                     6.982781   50.943890   
+  Koeln3                     6.930829   50.946899   
+  Koeln4                     7.005197   50.922901   
+  Siegburg                   7.215370   50.803101   
+  Bonn                       7.103181   50.723301   
+  Dortmund1                  7.468019   51.506760   
+  Dortmund2                  7.451472   51.525490   
+  Luedenscheid               7.630721   51.218719   
+  Iserlohn                   7.714040   51.374592   
+  Aachen                     6.103826   50.791962   
+  Simmerath                  6.263353   50.632938   
+  Muenster1                  7.645169   51.963169   
+  Muenster2                  7.644464   51.883360   
+  Ahaus                      7.016469   52.083290    
+  Warendorf                  7.981539   51.952801    
+  Koblenz                    7.579152   50.360859    
+  Virneburg                  7.074332   50.341438    
+  Siegen                     8.014522   50.871552    
+  Wesel                      6.623360   51.659199    
+  Meschede                   8.296221   51.345112    
+  Berlin1                   13.359560   52.497490    
+  Berlin2                   13.367880   52.502071    
+  Berlin3                   13.484310   52.515141    
+  Oranienburg               13.249810   52.755489    
+  Potsdam                   13.063160   52.395809    
+  Michendorf                13.137620   52.319118    
+  Nauen                     12.880390   52.610329    
+  Strausberg                13.890970   52.578300    
+  Fuerstenwalde             14.063070   52.360569    
+  Zeuthen                   13.574730   52.352268    
+  Leipzig1                  12.306000   51.413078    
+  Leipzig2                  12.402240   51.353802    
+  Delitzsch                 12.339370   51.524719    
+  Brandis                   12.600620   51.370579    
+  Weissenfels               11.973900   51.209999    
+  Halle/Saale               11.990200   51.532490    
+  Wittenberg                12.676220   51.869968    
+  Dresden                   13.732270   51.051868    
+  Cottbus                   14.343070   51.721760    
+  Goerlitz                  14.982560   51.162479    
+  Loebau                    14.652490   51.076389    
+  Erfurt1                   11.108690   50.932629    
+  Erfurt2                   11.021840   50.983181    
+  Gera                      12.068610   50.878891    
+  Suhl                      10.690380   50.608799    
+  Hildburghausen            10.725580   50.430439    
+  Chemnitz                  13.087870   50.814178    
+  Rostock                   12.069800   54.060650    
+  Ribnitz-Damgarten         12.439700   54.245411    
+  Wismar                    11.442120   53.889999    
+  Schwerin                  11.467910   53.601669    
+  Parchim                   11.858800   53.425209    
+  Magdeburg                 11.641530   52.138592    
+  Stendal                   11.863160   52.602749    
+  Zwiedorf                  13.109100   53.724072    
+  Pasewalk                  14.031170   53.481571    
+  Hamburg1                   9.986947   53.570000    
+  Hamburg2                   9.968385   53.554420    
+  Hamburg3                  10.192010   53.504921   
+  Hamburg4                  10.078110   53.548931   
+  Hamburg5                   9.781799   53.585678    
+  Schwarzenbek              10.481630   53.501930   
+  Buchholz-Trelde            9.794327   53.317421    
+  Kaltenkirchen              9.939366   53.824539    
+  Bremen                     8.800006   53.081749    
+  Kiel                      10.106520   54.328732   
+  Rendsburg                  9.629599   54.323849    
+  Oldenburg                  8.218354   53.140640    
+  Westerstede                7.927442   53.257191    
+  Friesoythe                 7.860205   53.023701    
+  Luebeck                   10.668730   53.872890   
+  Flensburg1                 9.410282   54.834911    
+  Flensburg2                 9.445282   54.769379    
+  Bremerhaven                8.598027   53.540192    
+  Bederkesa                  8.840063   53.627819    
+  Gnarrenburg-Klenkendorf    9.095356   53.432640    
+  Heide                      9.101530   54.200741    
+  Leer                       7.470121   53.234161    
+  Norden                     7.207028   53.598480    
+  Nienburg                   9.208847   52.646221    
+  Hannover1                  9.739174   52.377789    
+  Hannover2                  9.803223   52.394810    
+  Hildesheim                 9.926488   52.158489    
+  Hameln                     9.329569   52.062180    
+  Wietzendorf                9.985006   52.910679    
+  Bielefeld                  8.537148   52.026501    
+  Paderborn                  8.738048   51.720428    
+  Braunschweig              10.405570   52.244141   
+  Gifhorn                   10.540860   52.478611   
+  Seesen                    10.158460   51.881882   
+  Osnabrueck                 8.051965   52.275539    
+  Goettingen                 9.933006   51.552090    
+  Kassel1                    9.487023   51.317261    
+  Kassel2                    9.555616   51.283428    
+  Trendelburg                9.427066   51.575432    
+  Minden                     8.891858   52.277679    
+  Uelzen                    10.557210   52.966610   
+  Lingen                     7.288140   52.512760    
+  Aschaffenburg              9.156440   49.977242    
+  Reichelsheim               8.868974   50.321819    
+  Roedermark                 8.787756   49.984619    
+  Usingen                    8.481226   50.335300    
+  Wiesbaden                  8.215291   50.096889    
+  Mainz                      8.265121   50.000999    
+  Hammersbach                8.964964   50.222260    
+  Ladenburg                  8.657173   49.460701    
+  Ludwigshafen               8.486980   49.485130    
+  Mannheim1                  8.490365   49.475559    
+  Mannheim2                  8.444575   49.485420    
+  Mannheim3                  8.487980   49.465561    
+  Mosbach                    9.141191   49.351990    
+  Hochspeyer                 7.882354   49.447701    
+  Kaiserslautern             7.759255   49.437302    
+  Linden                     8.659297   50.538609    
+  Giessen                    8.667179   50.581249    
+  Braunfels                  8.392470   50.515919    
+  Trier                      6.655060   49.765629    
+  Gerolstein                 6.661077   50.223930    
+  Fulda1                     9.676389   50.552608    
+  Fulda2                     9.633751   50.551182    
+  Jesberg                    9.147894   51.002460    
+  Woellstein                 7.950423   49.814159    
+  Bad_Kreuznach              7.858318   49.848358    
+  Kastellaun                 7.444245   50.075272    
+  Saarbruecken               7.045164   49.239040    
+  Homburg                    7.338145   49.316181    
+  Lebach                     6.905856   49.410679    
+  Frankfurt/Main1            8.660000   50.150000
+  Frankfurt/Main2            8.658896   50.143188    
+  Frankfurt/Main3            8.581704   50.106609    
+  Stuttgart1                 9.180590   48.782200    
+  Stuttgart2                 9.177977   48.812778    
+  Stuttgart3                 9.120713   48.726429    
+  Neckartenzlingen           9.214022   48.611080    
+  Heilbronn                  9.230713   49.146690    
+  Ludwigsburg                9.165464   48.900391    
+  Goeppingen                 9.637924   48.712860    
+  Backnang                   9.429803   48.945301    
+  Karlsruhe                  8.412617   49.005310    
+  Bretten                    8.664645   49.051922    
+  Biberach                   9.986029   48.402000    
+  Rottweil                   8.635157   48.158039    
+  Tuttlingen                 8.823908   47.993351    
+  Ravensburg                 9.624208   47.795238    
+  Saulgau                    9.503778   48.013779    
+  Freiburg                   7.902674   47.979691    
+  Donaueschingen             8.485077   47.955040    
+  Offenburg                  7.942762   48.476151    
+  Schwaebisch_Hall           9.750564   49.111931    
+  Waakirchen                11.686410   47.753971    
+  Augsburg                  10.829020   48.433010    
+  Kempten                   10.314910   47.721409    
+  Memmingen                 10.187700   47.988861    
+  Ingolstadt-Zuchering      11.405470   48.709042    
+  Passau                    13.448000   48.582840    
+  Traunstein                12.640060   47.868382    
+  Muehldorf                 12.528320   48.250759    
+  Landshut                  12.154990   48.556950    
+  Mainburg                  11.778390   48.640030    
+  Diessen                   11.117570   47.900581    
+  Wessobrunn                11.024790   47.876450    
+  Weilheim                  11.144310   47.844669    
+  Muenchen                  11.551090   48.148571    
+  Donauwoerth               10.773540   48.715649    
+  Monheim                   10.853960   48.843010    
+  Nuernberg1                11.076580   49.452801    
+  Nuernberg2                11.040450   49.427818    
+  Rosstal                   10.887560   49.390839    
+  Bayreuth                  11.615820   49.948120    
+  Wuerzburg                  9.950338   49.799011    
+  Regensburg1               12.121640   49.028741    
+  Regensburg2               12.121720   48.998440    
+  Frensdorf                 10.932700   49.842770    
+  Bamberg                   10.912200   49.888802    
+  Weiden                    12.158770   49.666302    
+  Bad_Kissingen             10.079880   50.200439    
+  Hammelburg                 9.924500   50.119320    
+  Ansbach1                  10.580480   49.299839    
+  Ansbach2                  10.572940   49.290001    
+  Deggendorf                12.970200   48.846611    
+  Plattling                 12.871040   48.778419    
+
+   1     Essen                    Duesseldorf                    37      
+   2     Essen                    Dortmund2                      47      
+   3     Essen                    Luedenscheid                   60      
+   4     Essen                    Wesel                          48      
+   5     Duesseldorf              Krefeld                        24      
+   6     Duesseldorf              Koeln3                         37      
+   7     Duesseldorf              Luedenscheid                   72      
+   8     Krefeld                  Aachen                         85      
+   9     Krefeld                  Wesel                          54      
+  10     Koeln1                   Koeln2                          1      
+  11     Koeln1                   Koeln3                          3      
+  12     Koeln1                   Bonn                           27      
+  13     Koeln1                   Aachen                         76      
+  14     Koeln2                   Koeln3                         11      
+  15     Koeln2                   Koeln4                          4      
+  16     Koeln3                   Koeln4                         11      
+  17     Koeln4                   Luedenscheid                   49      
+  18     Siegburg                 Bonn                           14      
+  19     Siegburg                 Iserlohn                       96      
+  20     Siegburg                 Virneburg                      59     
+  21     Bonn                     Koblenz                        77      
+  22     Dortmund1                Dortmund2                       4      
+  23     Dortmund1                Luedenscheid                   37      
+  24     Dortmund2                Iserlohn                       35      
+  25     Dortmund2                Muenster1                      68      
+  26     Luedenscheid             Iserlohn                       29      
+  27     Luedenscheid             Siegen                         63      
+  28     Luedenscheid             Meschede                       58      
+  29     Iserlohn                 Warendorf                      89      
+  30     Iserlohn                 Meschede                       55      
+  31     Aachen                   Simmerath                      25      
+  32     Simmerath                Virneburg                      84      
+  33     Simmerath                Gerolstein                     76      
+  34     Muenster1                Muenster2                       3      
+  35     Muenster1                Bielefeld                      85      
+  36     Muenster2                Ahaus                          54      
+  37     Muenster2                Warendorf                      30      
+  38     Ahaus                    Wesel                          64      
+  39     Ahaus                    Lingen                         64      
+  40     Warendorf                Paderborn                      81      
+  41     Warendorf                Osnabrueck                     57      
+  42     Koblenz                  Virneburg                      52      
+  43     Koblenz                  Siegen                        110      
+  44     Koblenz                  Wiesbaden                      75      
+  45     Koblenz                  Braunfels                      72      
+  46     Koblenz                  Kastellaun                     41      
+  47     Virneburg                Hochspeyer                    138      
+  48     Virneburg                Gerolstein                     39      
+  49     Siegen                   Meschede                       86      
+  50     Siegen                   Linden                         79      
+  51     Meschede                 Paderborn                      64      
+  52     Meschede                 Jesberg                       100      
+  53     Berlin1                  Berlin2                         2      
+  54     Berlin1                  Berlin3                        14      
+  55     Berlin1                  Potsdam                        30      
+  56     Berlin1                  Michendorf                     46      
+  57     Berlin1                  Nauen                          20      
+  58     Berlin1                  Zeuthen                        30      
+  59     Berlin2                  Berlin3                        10      
+  60     Berlin2                  Oranienburg                    42      
+  61     Berlin3                  Oranienburg                    36      
+  62     Berlin3                  Strausberg                     33      
+  63     Berlin3                  Zeuthen                        25      
+  64     Oranienburg              Nauen                          36      
+  65     Oranienburg              Strausberg                     63      
+  66     Oranienburg              Parchim                       144      
+  67     Oranienburg              Zwiedorf                      110      
+  68     Potsdam                  Michendorf                     10      
+  69     Potsdam                  Nauen                          30      
+  70     Potsdam                  Magdeburg                     152      
+  71     Michendorf               Zeuthen                        48      
+  72     Michendorf               Wittenberg                     73      
+  73     Nauen                    Stendal                        81      
+  74     Strausberg               Fuerstenwalde                  33      
+  75     Strausberg               Pasewalk                      133      
+  76     Fuerstenwalde            Zeuthen                        46      
+  77     Fuerstenwalde            Cottbus                        84      
+  78     Zeuthen                  Wittenberg                    102      
+  79     Leipzig1                 Leipzig2                       17      
+  80     Leipzig1                 Delitzsch                      23      
+  81     Leipzig2                 Brandis                        21      
+  82     Leipzig2                 Weissenfels                    42      
+  83     Leipzig2                 Chemnitz                       99      
+  84     Delitzsch                Brandis                        30      
+  85     Delitzsch                Halle/Saale                    30      
+  86     Brandis                  Wittenberg                     89      
+  87     Brandis                  Dresden                       135      
+  88     Brandis                  Gera                           96      
+  89     Weissenfels              Halle/Saale                    36      
+  90     Weissenfels              Erfurt2                        84      
+  91     Weissenfels              Gera                           42      
+  92     Halle/Saale              Wittenberg                     76      
+  93     Halle/Saale              Magdeburg                      90      
+  94     Wittenberg               Dresden                       138      
+  95     Dresden                  Cottbus                       108      
+  96     Dresden                  Loebau                         84      
+  97     Dresden                  Chemnitz                       72      
+  98     Cottbus                  Goerlitz                       90      
+  99     Goerlitz                 Loebau                         25      
+ 100     Erfurt1                  Erfurt2                         7      
+ 101     Erfurt1                  Gera                           90      
+ 102     Erfurt1                  Suhl                           57      
+ 103     Erfurt2                  Kassel2                       137      
+ 104     Gera                     Chemnitz                       72      
+ 105     Gera                     Bayreuth                      140      
+ 106     Suhl                     Hildburghausen                 24      
+ 107     Suhl                     Fulda2                         87      
+ 108     Hildburghausen           Chemnitz                      189      
+ 109     Hildburghausen           Bad_Kissingen                  55      
+ 110     Rostock                  Ribnitz-Damgarten              32      
+ 111     Rostock                  Wismar                         56      
+ 112     Rostock                  Zwiedorf                      126      
+ 113     Ribnitz-Damgarten        Pasewalk                      177      
+ 114     Wismar                   Schwerin                       32      
+ 115     Wismar                   Luebeck                        60      
+ 116     Schwerin                 Parchim                        45      
+ 117     Schwerin                 Schwarzenbek                   75      
+ 118     Parchim                  Stendal                       106      
+ 119     Parchim                  Zwiedorf                      111      
+ 120     Parchim                  Uelzen                        120      
+ 121     Magdeburg                Stendal                        66      
+ 122     Magdeburg                Seesen                        142      
+ 123     Stendal                  Gifhorn                       108      
+ 124     Zwiedorf                 Pasewalk                       56      
+ 125     Hamburg1                 Hamburg2                        4      
+ 126     Hamburg1                 Hamburg4                        8      
+ 127     Hamburg2                 Hamburg3                       22      
+ 128     Hamburg2                 Hamburg4                        9      
+ 129     Hamburg2                 Hamburg5                       17      
+ 130     Hamburg2                 Buchholz-Trelde                36      
+ 131     Hamburg2                 Kaltenkirchen                  32      
+ 132     Hamburg2                 Wietzendorf                    82      
+ 133     Hamburg3                 Hamburg4                       10      
+ 134     Hamburg3                 Schwarzenbek                   20      
+ 135     Hamburg3                 Buchholz-Trelde                36      
+ 136     Hamburg3                 Luebeck                        62      
+ 137     Hamburg3                 Uelzen                         81      
+ 138     Hamburg4                 Hamburg5                       22      
+ 139     Hamburg5                 Buchholz-Trelde                39      
+ 140     Hamburg5                 Kaltenkirchen                  32      
+ 141     Hamburg5                 Bremen                        113      
+ 142     Hamburg5                 Gnarrenburg-Klenkendorf        69      
+ 143     Hamburg5                 Heide                          99      
+ 144     Schwarzenbek             Luebeck                        54      
+ 145     Schwarzenbek             Uelzen                         72      
+ 146     Buchholz-Trelde          Nienburg                       98      
+ 147     Kaltenkirchen            Rendsburg                      69      
+ 148     Kaltenkirchen            Luebeck                        61      
+ 149     Bremen                   Friesoythe                     74      
+ 150     Bremen                   Bremerhaven                    61      
+ 151     Bremen                   Nienburg                       72      
+ 152     Bremen                   Wietzendorf                    97      
+ 153     Kiel                     Rendsburg                      38      
+ 154     Kiel                     Luebeck                        77      
+ 155     Kiel                     Flensburg2                     81      
+ 156     Rendsburg                Flensburg1                     72      
+ 157     Rendsburg                Heide                          49      
+ 158     Oldenburg                Westerstede                    29      
+ 159     Oldenburg                Friesoythe                     33      
+ 160     Oldenburg                Gnarrenburg-Klenkendorf        72      
+ 161     Oldenburg                Osnabrueck                    120      
+ 162     Westerstede              Bremerhaven                    48      
+ 163     Westerstede              Leer                           58      
+ 164     Westerstede              Norden                         86      
+ 165     Friesoythe               Leer                           44      
+ 166     Friesoythe               Lingen                         77      
+ 167     Flensburg1               Flensburg2                      9      
+ 168     Flensburg2               Heide                          82      
+ 169     Bremerhaven              Bederkesa                      23      
+ 170     Bederkesa                Gnarrenburg-Klenkendorf        34      
+ 171     Bederkesa                Heide                          83      
+ 172     Leer                     Norden                         60      
+ 173     Leer                     Lingen                         98      
+ 174     Nienburg                 Hannover1                      51      
+ 175     Nienburg                 Gifhorn                       108      
+ 176     Nienburg                 Osnabrueck                    108      
+ 177     Nienburg                 Minden                         56      
+ 178     Hannover1                Hannover2                       6      
+ 179     Hannover1                Braunschweig                   69      
+ 180     Hannover2                Hildesheim                     35      
+ 181     Hannover2                Hameln                         57      
+ 182     Hannover2                Wietzendorf                    70      
+ 183     Hannover2                Gifhorn                        63      
+ 184     Hannover2                Minden                         81      
+ 185     Hildesheim               Hameln                         46      
+ 186     Hildesheim               Seesen                         42      
+ 187     Hameln                   Bielefeld                      65      
+ 188     Hameln                   Trendelburg                    70      
+ 189     Wietzendorf              Uelzen                         54      
+ 190     Bielefeld                Paderborn                      86      
+ 191     Bielefeld                Osnabrueck                     50      
+ 192     Bielefeld                Minden                         44      
+ 193     Paderborn                Kassel1                        83      
+ 194     Paderborn                Trendelburg                    66      
+ 195     Paderborn                Minden                         79      
+ 196     Braunschweig             Gifhorn                        33      
+ 197     Braunschweig             Seesen                         67      
+ 198     Gifhorn                  Uelzen                         67      
+ 199     Seesen                   Goettingen                     52      
+ 200     Seesen                   Trendelburg                    70      
+ 201     Osnabrueck               Lingen                         67      
+ 202     Goettingen               Kassel2                        56      
+ 203     Goettingen               Trendelburg                    55      
+ 204     Kassel1                  Kassel2                        12      
+ 205     Kassel1                  Trendelburg                    44      
+ 206     Kassel1                  Jesberg                        54      
+ 207     Kassel2                  Fulda2                        108      
+ 208     Kassel2                  Jesberg                        52      
+ 209     Trendelburg              Braunfels                     168      
+ 210     Aschaffenburg            Hammersbach                    43      
+ 211     Aschaffenburg            Frankfurt/Main2                47      
+ 212     Aschaffenburg            Schwaebisch_Hall              135      
+ 213     Aschaffenburg            Wuerzburg                      72      
+ 214     Reichelsheim             Hammersbach                    21      
+ 215     Reichelsheim             Linden                         36      
+ 216     Reichelsheim             Frankfurt/Main2                36      
+ 217     Roedermark               Ludwigshafen                   85      
+ 218     Roedermark               Frankfurt/Main1                22      
+ 219     Roedermark               Frankfurt/Main3                27      
+ 220     Usingen                  Wiesbaden                      37      
+ 221     Usingen                  Linden                         30      
+ 223     Usingen                  Braunfels                      27      
+ 224     Usingen                  Frankfurt/Main3                35      
+ 225     Wiesbaden                Mainz                          14      
+ 226     Wiesbaden                Frankfurt/Main3                37      
+ 227     Mainz                    Bad_Kreuznach                  39      
+ 228     Mainz                    Frankfurt/Main3                38      
+ 229     Hammersbach              Fulda2                         72      
+ 230     Hammersbach              Jesberg                       100      
+ 231     Hammersbach              Frankfurt/Main1                34      
+ 232     Hammersbach              Frankfurt/Main2                34      
+ 233     Hammersbach              Bad_Kissingen                  96      
+ 234     Ladenburg                Mannheim1                      15      
+ 235     Ladenburg                Frankfurt/Main3                81      
+ 236     Ladenburg                Stuttgart3                    112      
+ 237     Ludwigshafen             Mannheim2                       7      
+ 238     Ludwigshafen             Mannheim3                       1      
+ 239     Mannheim1                Mannheim2                       7      
+ 240     Mannheim1                Mannheim3                       1      
+ 241     Mannheim2                Hochspeyer                     43      
+ 242     Mannheim2                Woellstein                     70      
+ 243     Mannheim2                Heilbronn                      84      
+ 244     Mannheim3                Karlsruhe                      65      
+ 245     Mosbach                  Frankfurt/Main1               136      
+ 246     Mosbach                  Heilbronn                      32      
+ 247     Mosbach                  Backnang                       66      
+ 248     Hochspeyer               Kaiserslautern                 10      
+ 249     Hochspeyer               Bretten                        84      
+ 250     Kaiserslautern           Bad_Kreuznach                  53      
+ 251     Kaiserslautern           Saarbruecken                   70      
+ 252     Linden                   Giessen                         6      
+ 253     Linden                   Jesberg                        68      
+ 254     Giessen                  Braunfels                      27      
+ 255     Giessen                  Fulda1                         85      
+ 256     Trier                    Gerolstein                     66      
+ 257     Trier                    Kastellaun                     80      
+ 258     Trier                    Lebach                         58      
+ 259     Fulda1                   Fulda2                          4      
+ 260     Fulda2                   Hammelburg                     66      
+ 261     Woellstein               Bad_Kreuznach                  10      
+ 262     Bad_Kreuznach            Kastellaun                     58      
+ 263     Saarbruecken             Homburg                        31      
+ 264     Saarbruecken             Lebach                         29      
+ 265     Homburg                  Lebach                         47      
+ 266     Homburg                  Karlsruhe                     113      
+ 267     Frankfurt/Main1          Frankfurt/Main2                 4      
+ 268     Frankfurt/Main1          Frankfurt/Main3                10      
+ 269     Frankfurt/Main2          Frankfurt/Main3                11      
+ 270     Stuttgart1               Stuttgart2                      4      
+ 271     Stuttgart1               Neckartenzlingen               25      
+ 272     Stuttgart2               Stuttgart3                     13      
+ 273     Stuttgart2               Ludwigsburg                    10      
+ 274     Stuttgart2               Goeppingen                     54      
+ 275     Stuttgart2               Karlsruhe                      77      
+ 276     Stuttgart3               Rottweil                       91      
+ 277     Neckartenzlingen         Goeppingen                     46      
+ 278     Neckartenzlingen         Bretten                        75      
+ 279     Neckartenzlingen         Offenburg                     123      
+ 280     Neckartenzlingen         Wessobrunn                    185      
+ 281     Heilbronn                Ludwigsburg                    39      
+ 282     Heilbronn                Backnang                       36      
+ 283     Heilbronn                Bretten                        58      
+ 284     Heilbronn                Schwaebisch_Hall               51      
+ 285     Ludwigsburg              Backnang                       22      
+ 286     Goeppingen               Biberach                       56      
+ 287     Goeppingen               Schwaebisch_Hall               57      
+ 288     Backnang                 Augsburg                      140      
+ 289     Karlsruhe                Bretten                        25      
+ 290     Karlsruhe                Offenburg                      56      
+ 291     Biberach                 Ravensburg                     89      
+ 292     Biberach                 Augsburg                       72      
+ 293     Biberach                 Memmingen                      52      
+ 294     Rottweil                 Ravensburg                    101      
+ 295     Rottweil                 Donaueschingen                 32      
+ 296     Rottweil                 Offenburg                      75      
+ 297     Tuttlingen               Saulgau                        61      
+ 298     Tuttlingen               Donaueschingen                 31      
+ 299     Ravensburg               Saulgau                        34      
+ 300     Ravensburg               Kempten                        62      
+ 301     Saulgau                  Memmingen                      62      
+ 302     Freiburg                 Donaueschingen                 64      
+ 303     Freiburg                 Offenburg                      64      
+ 304     Schwaebisch_Hall         Monheim                       104      
+ 305     Schwaebisch_Hall         Wuerzburg                      90      
+ 306     Schwaebisch_Hall         Ansbach2                       81      
+ 307     Waakirchen               Traunstein                     96      
+ 308     Waakirchen               Wessobrunn                     66      
+ 309     Waakirchen               Muenchen                       54      
+ 310     Augsburg                 Diessen                        88      
+ 311     Augsburg                 Muenchen                       77      
+ 312     Augsburg                 Donauwoerth                    39      
+ 313     Kempten                  Memmingen                      34      
+ 314     Kempten                  Wessobrunn                     72      
+ 315     Memmingen                Diessen                        87      
+ 316     Ingolstadt-Zuchering     Mainburg                       32      
+ 317     Ingolstadt-Zuchering     Muenchen                       83      
+ 318     Ingolstadt-Zuchering     Monheim                        52      
+ 319     Ingolstadt-Zuchering     Nuernberg1                    113      
+ 320     Passau                   Muehldorf                     111      
+ 321     Passau                   Plattling                      59      
+ 322     Traunstein               Muehldorf                      53      
+ 323     Muehldorf                Landshut                       49      
+ 324     Muehldorf                Muenchen                       98      
+ 325     Landshut                 Mainburg                       36      
+ 326     Landshut                 Plattling                      72      
+ 327     Mainburg                 Muenchen                       69      
+ 328     Mainburg                 Regensburg2                    50      
+ 329     Diessen                  Weilheim                       11      
+ 330     Diessen                  Muenchen                       62      
+ 331     Wessobrunn               Weilheim                       10      
+ 332     Donauwoerth              Monheim                        22      
+ 333     Monheim                  Ansbach2                       65      
+ 334     Nuernberg1               Nuernberg2                      5      
+ 335     Nuernberg1               Rosstal                        23      
+ 336     Nuernberg1               Bayreuth                       78      
+ 337     Nuernberg1               Bad_Kissingen                 157      
+ 338     Nuernberg2               Rosstal                        20      
+ 339     Nuernberg2               Regensburg2                   104      
+ 340     Nuernberg2               Frensdorf                      53      
+ 341     Rosstal                  Ansbach1                       28      
+ 342     Rosstal                  Ansbach2                       31      
+ 343     Bayreuth                 Bamberg                        66      
+ 344     Bayreuth                 Weiden                         58      
+ 345     Wuerzburg                Frensdorf                      86      
+ 346     Wuerzburg                Hammelburg                     45      
+ 347     Wuerzburg                Ansbach2                       72      
+ 348     Regensburg1              Regensburg2                     6      
+ 349     Regensburg1              Weiden                         94      
+ 350     Regensburg2              Deggendorf                     83      
+ 351     Frensdorf                Bamberg                        12      
+ 352     Bamberg                  Bad_Kissingen                  90      
+ 353     Bad_Kissingen            Hammelburg                     18      
+ 354     Ansbach1                 Ansbach2                        2      
+ 355     Deggendorf               Plattling                      14      
+
+
