@@ -24,10 +24,16 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 {
     this->_totalElapsedTime += fElapsedTime;
     Plane::OnUserUpdate(fElapsedTime);
+
+    auto mouseX{ stocx(GetMouseX()) };
+    auto mouseY{ stocy(GetMouseY()) };
+    olc::PixelGameEngine::DrawString(
+    0, 0, "Mouse: " + std::to_string(mouseX) + ", " + std::to_string(mouseY), olc::RED);
+    olc::PixelGameEngine::DrawString(0, 9, "Scale: " + std::to_string(getScale()), olc::RED);
+
+
     this->_graph->draw(*this);
 
-    // auto mouseX{ stocx(GetMouseX()) };
-    // auto mouseY{ stocy(GetMouseY()) };
     // FillCircle(mouseX, mouseY, 10, olc::RED);
     // size_t segments = 100;
     // auto f          = [&](size_t arg) {

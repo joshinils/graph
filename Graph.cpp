@@ -215,8 +215,11 @@ void Graph::draw(Aether& aether) const
 
         olc::vf2d dir = (start - end).norm();
 
-        aether.DrawArrow(
-        start - Knoten::nodeScale * 8 * dir, end + Knoten::nodeScale * 8 * dir, 1 + e.gewicht, olc::RED, olc::GREEN);
+        aether.DrawArrow(start - Knoten::nodeScale * 8 * dir,
+                         end + Knoten::nodeScale * 8 * dir,
+                         1 + e.gewicht / 20,
+                         olc::RED,
+                         olc::GREEN);
     }
 
     // draw nodes names on top
