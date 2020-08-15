@@ -1,6 +1,7 @@
 #include "Aether.h"
 #include "Graph.h"
 #include <iostream>
+#include <memory>
 #include <stdexcept>
 
 int main(int narg, char* argv[])
@@ -28,7 +29,7 @@ try
     std::cout << graph << '\n';
 
     double scale = 100;
-    Aether world(graph);
+    Aether world(std::make_unique<Graph>(graph));
     if(world.Construct((uint32_t)(16.0 * scale),
                        (uint32_t)(9.0 * scale),
                        (uint32_t)std::max(1.0, 120 / scale),

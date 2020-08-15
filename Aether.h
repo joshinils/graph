@@ -1,18 +1,19 @@
 #pragma once
 
-#include "Graph.h"
 class Graph;
+#include "Graph.h"
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
 #include "plane/Plane.h"
+#include <memory>
 
 class Aether : public Plane
 {
 private:
     double _totalElapsedTime = 0;
-    Graph _graph;
+    std::unique_ptr<Graph> _graph;
 
 public:
-    Aether(Graph const& g);
+    Aether(std::unique_ptr<Graph> g);
     ~Aether() = default;
 
     virtual bool OnUserCreate() override;

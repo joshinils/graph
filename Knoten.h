@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Aether.h"
+#include "Index.h"
 #include <iostream>
 #include <string>
 
@@ -8,28 +10,6 @@
  * Kann nach Bedarf erweitert oder abgeleitet werden
  */
 
-// size_t but named differently
-struct knotenIndex
-{
-    size_t index;
-    knotenIndex(size_t i = 0)
-        : index(i)
-    { }
-    operator size_t() const { return index; }
-    knotenIndex& operator++()
-    {
-        index++;
-        return *this;
-    }
-    knotenIndex operator++(int)
-    {
-        knotenIndex tmp(*this);
-        operator++();
-        return tmp;
-    }
-    bool operator==(knotenIndex const& other) const { return this->index == other.index; }
-    bool operator!=(knotenIndex const& other) const { return this->index != other.index; }
-};
 
 class Knoten
 {
@@ -41,6 +21,8 @@ public:
 
     // Koordinaten des Knotens
     double xKoo, yKoo;
+
+    constexpr static double nodeScale = 2;
 
     /***  Konstruktoren  ***/
 
@@ -65,5 +47,9 @@ public:
     {
         return ostr << knoten.name << "(" << knoten.xKoo << "," << knoten.yKoo << ")";
     }
+
+    void drawCirc(Aether& aether, double drawScale) const;
+
+    void drawName(Aether& aether, double drawScale) const;
 
 }; // class Knoten

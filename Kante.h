@@ -1,12 +1,9 @@
 #pragma once
 
+#include "Index.h"
 #include "Knoten.h"
-#include <climits>
 #include <iostream>
 #include <string>
-
-// ungültiger Sonderwert für Indizes
-knotenIndex const KEIN_INDEX = UINT_MAX;
 
 /**
  * Klasse für Graphkanten
@@ -31,8 +28,8 @@ public:
 
     // Standard- und Initialisierungskonstruktor
     Kante(std::string const& argName = "",
-          knotenIndex argFuss        = KEIN_INDEX,
-          knotenIndex argKopf        = KEIN_INDEX,
+          knotenIndex argFuss        = knotenIndex::KEIN_INDEX,
+          knotenIndex argKopf        = knotenIndex::KEIN_INDEX,
           double argGew              = 1)
         : name(argName)
         , iFuss(argFuss)
