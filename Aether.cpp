@@ -98,8 +98,10 @@ void Aether::FillLine(olc::vf2d start, olc::vf2d end, double width, olc::Pixel c
     auto corner1 = start - orthog;
     auto corner2 = end + orthog;
     auto corner3 = end - orthog;
-    Plane::FillTriangle(corner0, corner1, corner2, color);
-    Plane::FillTriangle(corner3, corner1, corner2, color);
+
+    DrawWarpedDecal(_gradientDecal, {ctos(corner0), ctos(corner1), ctos(corner3), ctos(corner2)}, color);
+    //Plane::FillTriangle(corner0, corner1, corner2, color);
+    //Plane::FillTriangle(corner3, corner1, corner2, color);
 }
 
 olc::Pixel operator*(olc::Pixel const& p, float fac)
