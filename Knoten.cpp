@@ -8,9 +8,9 @@ void Knoten::drawCirc(Aether& aether, double drawScale) const
 
 void Knoten::drawName(Aether& aether, double drawScale) const
 {
-    aether.DrawString(this->xKoo * drawScale - 3.5 * nodeScale,
-                      this->yKoo * drawScale - 3.5 * nodeScale,
-                      this->name,
-                      olc::DARK_GREY,
-                      nodeScale);
+    aether.DrawStringDecalMinScale(
+    { float(this->xKoo * drawScale - 3.5 * nodeScale), float(this->yKoo * drawScale - 3.5 * nodeScale) },
+    this->name,
+    olc::DARK_GREY,
+    { nodeScale, nodeScale });
 }

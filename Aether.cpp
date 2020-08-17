@@ -22,7 +22,6 @@ bool Aether::OnUserCreate()
 
 bool Aether::OnUserUpdate(float fElapsedTime)
 {
-    this->_totalElapsedTime += fElapsedTime;
     Plane::OnUserUpdate(fElapsedTime);
 
     auto mouseX{ stocx(GetMouseX()) };

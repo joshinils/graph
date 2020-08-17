@@ -9,7 +9,6 @@ class Graph;
 class Aether : public Plane
 {
 private:
-    double _totalElapsedTime = 0;
     std::unique_ptr<Graph> _graph;
 
 public:
