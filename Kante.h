@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Aether.h"
+#include "Graph.h"
 #include "Index.h"
 #include "Knoten.h"
 #include <iostream>
@@ -42,5 +44,7 @@ public:
     {
         return ostr << kante.name << "[" << kante.gewicht << "]";
     }
+
+    void draw(Aether& aether, const Graph* const graph) const;
 
 }; // class Kante

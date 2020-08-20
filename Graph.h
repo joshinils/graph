@@ -81,7 +81,9 @@ class Graph
 
     double _minX = std::numeric_limits<double>::max(), _maxX = std::numeric_limits<double>::min(),
            _minY = std::numeric_limits<double>::max(), _maxY = std::numeric_limits<double>::min();
-    double _drawScale = 1;
+    double _drawScale     = 1;
+    double _maxGewicht    = std::numeric_limits<double>::min();
+    double _minKnotenDist = 10;
 
 public:
     /***  öffentliche Konstanten  ***/
@@ -113,6 +115,10 @@ public:
 
     // gib Anzahl Kanten aus
     size_t anzKanten() const { return _kanten.size(); }
+
+    double getDrawScale() const { return _drawScale; }
+    double getMaxGewicht() const { return _maxGewicht; }
+    double getMinKnotenDist() const { return _minKnotenDist; }
 
     // gib Objekt des Knotens mit Index v aus
     // wirf Exception, falls v zu groß

@@ -64,17 +64,24 @@ olc::vf2d turnVec(olc::vf2d const& in, float angle)
 
 void Aether::DrawArrow(olc::vf2d start, olc::vf2d end, double width, olc::Pixel colorTo, olc::Pixel colorFrom)
 {
-    end += width / 2 * (start - end).norm();
-    olc::vf2d lineDirection = (start - end);
+    end -= width / 2 * (end - start).norm();
+    olc::vf2d lineDirection = (end - start);
+    double screenlength     = ctos(lineDirection).mag();
+    int segments            = std::min(100., floor(screenlength));
 
-    for(float total = std::min(100.f, lineDirection.dot(lineDirection)), i = 0; i < total; ++i)
+    float coordLength   = std::min(100.f, lineDirection.mag());
+    double segmentDelta = coordLength / segments;
+
+    lineDirection = lineDirection.norm();
+    for(int i = 0; i < segments; ++i)
     {
-        //std::cout << "total " << total << " i " << i << " i/t " << i/total << std::endl;
-        FillLine(start - lineDirection * (i / total),
-                 end + lineDirection * (1 - (i + 1) / total),
+        //std::cout << "coordLength " << coordLength << " i " << i << " i/t " << i / coordLength << std::endl;
+        FillLine(start + lineDirection * i * segmentDelta,
+                 start + lineDirection * (i + 1.) * segmentDelta,
                  width,
-                 average(colorTo, colorFrom, (i / (total)), (1. - i / total)));
+                 average(colorTo, colorFrom, ((float)i / segments), (1. - (float)i / segments)));
     }
+
 
     auto turned0 = turnVec((start - end).norm(), float(M_PI / 11));
     auto turned1 = turnVec((start - end).norm(), float(-M_PI / 11));
@@ -98,7 +105,7 @@ void Aether::FillLine(olc::vf2d start, olc::vf2d end, double width, olc::Pixel c
     auto corner2 = end + orthog;
     auto corner3 = end - orthog;
 
-    DrawWarpedDecal(_gradientDecal, {ctos(corner0), ctos(corner1), ctos(corner3), ctos(corner2)}, color);
+    DrawWarpedDecal(_gradientDecal, { ctos(corner0), ctos(corner1), ctos(corner3), ctos(corner2) }, color);
     //Plane::FillTriangle(corner0, corner1, corner2, color);
     //Plane::FillTriangle(corner3, corner1, corner2, color);
 }

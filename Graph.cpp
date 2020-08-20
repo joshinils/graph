@@ -54,8 +54,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
 
         getline(fin, dummy); // ignoriere Rest der Zeile
     }
-    _drawScale = std::min(abs(_maxX - _minX), abs(_maxY - _minY)) * 100;
-    std::cout << _drawScale << std::endl;
+    //_drawScale = std::min(abs(_maxX - _minX), abs(_maxY - _minY));
+    std::cout << "_drawScale: " << _drawScale << std::endl;
 
 #if TALK
     cout << "Knoten gelesen" << '\n';
@@ -90,6 +90,8 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         std::string fuss, kopf;
         std::istringstream(zeile) >> kante.name >> fuss >> kopf >> kante.gewicht;
 
+        _maxGewicht = std::max(_maxGewicht, kante.gewicht);
+
         // suche Knotenindizes zu den Namen
         kante.iFuss = this->index(fuss);
         kante.iKopf = this->index(kopf);
@@ -122,6 +124,24 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
 
     fin.close();
 
+    /* initialisiere knotengrößen zum zeichnen */
+    FUER_ALLE_KNOTEN(u, *this)
+    {
+        auto& ku = _knoten[u];
+        olc::vd2d posKu(ku.xKoo, ku.yKoo);
+
+        FUER_ALLE_KNOTEN(v, *this)
+        {
+            auto& kv = _knoten[v];
+            olc::vd2d posKv(kv.xKoo, kv.yKoo);
+            auto dist = (posKu - posKv).mag();
+            //std::cout << "dist " << dist << " " << ku.name << " " << kv.name << '\n';
+            if(dist > 0.01) { _minKnotenDist = std::min(_minKnotenDist, dist); }
+            //std::cout << "minDist " << minDist << '\n';
+        }
+    }
+
+    FUER_ALLE_KNOTEN(u, *this) { _knoten[u].nodeScale = _minKnotenDist; }
 } // Graph::Graph()
 
 
@@ -204,23 +224,7 @@ void Graph::draw(Aether& aether) const
     FUER_ALLE_KNOTEN(kId, *this) { this->knoten(kId).drawCirc(aether, this->_drawScale); }
 
     // draw edges
-    FUER_ALLE_KANTEN(eId, *this)
-    {
-        Kante const& e      = this->kante(eId);
-        Knoten const& kFuss = this->knoten(e.iFuss);
-        olc::vf2d start     = olc::vf2d(kFuss.xKoo, kFuss.yKoo) * _drawScale;
-
-        Knoten const& kKopf  = this->knoten(e.iKopf);
-        olc::vf2d const& end = olc::vf2d(kKopf.xKoo, kKopf.yKoo) * _drawScale;
-
-        olc::vf2d dir = (start - end).norm();
-
-        aether.DrawArrow(start - Knoten::nodeScale * 8 * dir,
-                         end + Knoten::nodeScale * 8 * dir,
-                         1 + e.gewicht / 20,
-                         olc::RED,
-                         olc::GREEN);
-    }
+    FUER_ALLE_KANTEN(eId, *this) { this->kante(eId).draw(aether, this); }
 
     // draw nodes names on top
     FUER_ALLE_KNOTEN(kId, *this) { this->knoten(kId).drawName(aether, this->_drawScale); }

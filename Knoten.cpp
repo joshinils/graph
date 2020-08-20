@@ -3,14 +3,14 @@
 
 void Knoten::drawCirc(Aether& aether, double drawScale) const
 {
-    aether.FillCircle(this->xKoo * drawScale, this->yKoo * drawScale, nodeScale * 8);
+    aether.FillCircle(this->xKoo * drawScale, this->yKoo * drawScale, nodeScale * drawScale / 4 / 3);
 }
 
 void Knoten::drawName(Aether& aether, double drawScale) const
 {
     aether.DrawStringDecalMinScale(
-    { float(this->xKoo * drawScale - 3.5 * nodeScale), float(this->yKoo * drawScale - 3.5 * nodeScale) },
+    { float((this->xKoo /*- 1 * nodeScale*/) * drawScale), float((this->yKoo /*- 1 * nodeScale*/) * drawScale) },
     this->name,
     olc::DARK_GREY,
-    { nodeScale, nodeScale });
+    { nodeScale * drawScale / 100, nodeScale * drawScale / 100 });
 }

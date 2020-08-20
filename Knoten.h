@@ -22,7 +22,7 @@ public:
     // Koordinaten des Knotens
     double xKoo, yKoo;
 
-    constexpr static double nodeScale = 2;
+    double nodeScale = 20;
 
     /***  Konstruktoren  ***/
 
