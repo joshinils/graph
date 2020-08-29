@@ -12,5 +12,5 @@ void Knoten::drawName(Aether& aether, double drawScale) const
     { float((this->xKoo /*- 1 * nodeScale*/) * drawScale), float((this->yKoo /*- 1 * nodeScale*/) * drawScale) },
     this->name,
     olc::DARK_GREY,
-    { nodeScale * drawScale / 100, nodeScale * drawScale / 100 });
+    { nodeScale * drawScale / 10, nodeScale * drawScale / 10 });
 }

@@ -20,6 +20,7 @@ bool Aether::OnUserCreate()
     return true;
 }
 
+#include <sstream>
 bool Aether::OnUserUpdate(float fElapsedTime)
 {
     Plane::OnUserUpdate(fElapsedTime);
@@ -30,6 +31,20 @@ bool Aether::OnUserUpdate(float fElapsedTime)
     0, 0, "Mouse: " + std::to_string(mouseX) + ", " + std::to_string(mouseY), olc::RED);
     olc::PixelGameEngine::DrawString(0, 9, "Scale: " + std::to_string(getScale()), olc::RED);
 
+
+    auto r = dijkstra(*_graph, 0);
+    FUER_ALLE_KNOTEN(uID, *_graph)
+    {
+        std::stringstream ss;
+        ss << r.first.at(uID);
+        _graph->knoten(uID).setName(ss.str());
+    }
+    FUER_ALLE_KNOTEN(uID, *_graph)
+    {
+        std::stringstream ss;
+        ss << r.first.at(uID);
+        std::cout << ss.str() << '\n';
+    }
 
     this->_graph->draw(*this);
 

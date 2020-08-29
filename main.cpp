@@ -4,6 +4,7 @@
 #include <memory>
 #include <stdexcept>
 
+
 int main(int narg, char* argv[])
 try
 {
@@ -27,6 +28,7 @@ try
     Graph graph(dateiName, richtung);
 
     std::cout << graph << '\n';
+
 
     double scale = 100;
     Aether world(std::make_unique<Graph>(graph));

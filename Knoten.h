@@ -52,4 +52,6 @@ public:
 
     void drawName(Aether& aether, double drawScale) const;
 
+    void setName(std::string const& str) { name = str; }
+
 }; // class Knoten

@@ -97,6 +97,7 @@ Graph::Graph(std::string const& dateiName, bool gerichtet)
         kante.iKopf = this->index(kopf);
 
         // setze Nachbarnmengen
+        _nachbarn[kante.iFuss].push_back(IndexPaar(kante.iKopf, i));
         if(_nachbarn.size() < kante.iFuss) { _nachbarn[kante.iFuss].push_back(IndexPaar(kante.iKopf, i)); }
         if(_gerichtet) { _rNachbarn[kante.iKopf].push_back(IndexPaar(kante.iFuss, i)); }
         else
@@ -269,3 +270,35 @@ std::ostream& operator<<(std::ostream& ostr, Graph const& graph)
     return ostr;
 
 } // operator <<
+
+std::pair<std::vector<double>, std::vector<knotenIndex>> dijkstra(Graph const& G, knotenIndex const& startKnoten)
+{
+    auto V = G.anzKnoten();
+
+    std::vector<double> distances(V, std::numeric_limits<double>::max());
+    std::vector<knotenIndex> vorgaenger(V, knotenIndex::KEIN_INDEX);
+    auto cmp = [](knotenIndex const& a, knotenIndex const& b) { return false; }; //TODO
+    std::priority_queue<knotenIndex, std::vector<knotenIndex>, decltype(cmp)> prioQueueW(cmp);
+    prioQueueW.push(startKnoten);
+
+    distances[startKnoten] = 0;
+
+    while(!prioQueueW.empty())
+    {
+        auto u = prioQueueW.top(); // u = \argmin_{w \in prioQueueW} distances[w]
+        prioQueueW.pop();
+        for(auto vNM : G.rNachbarn(u)) // verlängere akt. s-u-Weg um (u, v)
+        {
+            auto v = vNM.iKnoten;
+            // c(u, v) == kantenlänge(u, v)
+            auto c = [&](knotenIndex u, knotenIndex v) { return G.kante(G.index(v, u)).gewicht; };
+            if(distances[v] > distances[u] + c(u, v))
+            {
+                distances[v]  = distances[u] + c(u, v); // Optimalitätskriterium
+                vorgaenger[v] = u; // merke Kante(u, v)
+                prioQueueW.push(v); // aktualisiere v in prioQueueW
+            }
+        }
+    }
+    return std::make_pair(distances, vorgaenger);
+}

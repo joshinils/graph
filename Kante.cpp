@@ -13,7 +13,7 @@ void Kante::draw(Aether& aether, const Graph* const graph) const
 
     aether.DrawArrow(start /*- kFuss.nodeScale * dir * graph->getDrawScale() / 100*/,
                      end /*+ kKopf.nodeScale * dir * graph->getDrawScale() / 100*/,
-                     (gewicht / graph->getMaxGewicht()) * graph->getDrawScale() * graph->getMinKnotenDist() / 2,
+                     (gewicht / graph->getMaxGewicht()) * graph->getDrawScale() * graph->getMinKnotenDist(),
                      olc::GREEN,
                      olc::RED);
 }

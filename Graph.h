@@ -5,6 +5,7 @@ class Aether;
 #include "Kante.h"
 #include "Knoten.h"
 #include <iostream>
+#include <queue> // dijkstra
 #include <string>
 #include <vector>
 
@@ -128,6 +129,12 @@ public:
         return _knoten[v];
     }
 
+    Knoten& knoten(knotenIndex v)
+    {
+        if(v >= this->anzKnoten()) { throw "Graph::knoten(): Index zu gross!"; }
+        return _knoten[v];
+    }
+
     // gib Objekt der Kante mit Index e aus
     // wirf Exception, falls e zu groß
     Kante const& kante(kantenIndex e) const
@@ -184,3 +191,5 @@ public:
 /***  Ausgabe auf ostream  ***/
 
 std::ostream& operator<<(std::ostream& ostr, Graph const& graph);
+
+std::pair<std::vector<double>, std::vector<knotenIndex>> dijkstra(Graph const& G, knotenIndex const& startKnoten);
