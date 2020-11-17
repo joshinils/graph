@@ -5,6 +5,7 @@ class Aether;
 #include "Kante.h"
 #include "Knoten.h"
 #include <iostream>
+#include <limits>
 #include <queue> // dijkstra
 #include <string>
 #include <vector>
