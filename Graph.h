@@ -189,6 +189,8 @@ public:
 
     void draw(Aether& aether) const;
 
+    void saveToFile(std::string fileName) const;
+
 }; // class Graph
 
 /***  Ausgabe auf ostream  ***/

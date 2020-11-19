@@ -2,6 +2,7 @@
 
 #include "Aether.h"
 #include "Index.h"
+#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -31,7 +32,10 @@ public:
         : name(argName)
         , xKoo(argX)
         , yKoo(argY)
-    { }
+    {
+        // for validity upon saving, replace all spaces (remove them)
+        std::replace(name.begin(), name.end(), ' ', '_');
+    }
 
     /***  Vergleichsoperatoren  ***/
 
@@ -52,6 +56,10 @@ public:
 
     void drawName(Aether& aether, double drawScale) const;
 
-    void setName(std::string const& str) { name = str; }
+    void setName(std::string const& str)
+    {
+        return;
+        name = str;
+    }
 
 }; // class Knoten

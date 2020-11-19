@@ -312,3 +312,44 @@ knotenIndex Graph::addNode(const Knoten& newNode)
     this->_knoten.emplace_back(newNode);
     return index(newNode.name);
 }
+
+void Graph::saveToFile(std::string fileName) const
+{
+    std::ofstream fout(fileName);
+    if(!fout) throw "ne";
+
+    // anzahl knoten
+    fout << this->_knoten.size() << " Knoten\n";
+
+    // anzahl kanten
+    fout << this->_kanten.size() << " Kanten\n";
+
+    // leerzeile
+    fout << "\n";
+
+    // liste der knoten, werte getrennt mittles space
+    //     name, des knotens, daran wird er identifiziert, ohne spaces
+    //     xKoo,
+    //     yKoo
+    for(const auto& node : this->_knoten)
+    {
+        fout << node.name << ' ' << std::setprecision(17) << node.xKoo << ' ' << std::setprecision(17) << node.yKoo
+             << '\n';
+    }
+
+    // leerzeile
+    fout << "\n";
+
+    // liste der kanten, werte getrennt mittles space
+    //     name, nicht weiter relevant
+    //     fuss, knotenname
+    //     kopf, knotenname
+    //     gewicht, double
+    for(const auto& edge : this->_kanten)
+    {
+        fout << edge.name << ' ' << this->_knoten[edge.iFuss].name << ' ' << this->_knoten[edge.iKopf].name << ' '
+             << edge.gewicht << '\n';
+    }
+
+    fout.close();
+}
