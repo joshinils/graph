@@ -6,6 +6,8 @@ class Graph;
 #include "plane/Plane.h"
 #include <memory>
 
+#undef None
+
 class Aether : public Plane
 {
 private:

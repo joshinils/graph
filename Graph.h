@@ -148,7 +148,7 @@ public:
     // wirf Exception, falls v ungültig
     nachbarnMenge const& nachbarn(knotenIndex v) const
     {
-        if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
+        if(v >= this->anzKnoten()) { throw std::string(__PRETTY_FUNCTION__) + ": Index zu gross!"; }
         return _nachbarn[v];
     }
 
@@ -156,7 +156,7 @@ public:
     // wirf Exception, falls v ungültig
     nachbarnMenge const& rNachbarn(knotenIndex v) const
     {
-        if(v >= this->anzKnoten()) { throw std::string(__FUNCTION__) + ": Index zu gross!"; }
+        if(v >= this->anzKnoten()) { throw std::string(__PRETTY_FUNCTION__) + ": Index zu gross!"; }
 
         // Objekt ungerichtet -> rückwärts = vorwärts
         return _gerichtet ? _rNachbarn[v] : _nachbarn[v];
@@ -184,6 +184,8 @@ public:
     // hinzu, falls sie nicht existiert; gib ihren Index
     // zurück oder KEIN_INDEX, falls existent
     kantenIndex setzeKante(std::string const& name, knotenIndex u, knotenIndex v);
+
+    knotenIndex addNode(const Knoten&);
 
     void draw(Aether& aether) const;
 

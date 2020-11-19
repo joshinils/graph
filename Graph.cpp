@@ -302,3 +302,13 @@ std::pair<std::vector<double>, std::vector<knotenIndex>> dijkstra(Graph const& G
     }
     return std::make_pair(distances, vorgaenger);
 }
+
+knotenIndex Graph::addNode(const Knoten& newNode)
+{
+    // emplace empty nachbarnmengen
+    this->_nachbarn.emplace_back(nachbarnMenge());
+    this->_rNachbarn.emplace_back(nachbarnMenge());
+
+    this->_knoten.emplace_back(newNode);
+    return index(newNode.name);
+}
