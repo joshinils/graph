@@ -48,24 +48,24 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 
     this->_graph->draw(*this);
 
-    // FillCircle(mouseX, mouseY, 10, olc::RED);
-    // size_t segments = 100;
-    // auto f          = [&](size_t arg) {
-    //     double t   = arg * 2 * M_PI / segments;
-    //     double r_x = ScreenWidth() * 0.5;
-    //     double r_y = ScreenHeight() * 0.5;
-    //     double m   = std::min(r_x, r_y) * 0.1;
-    //     r_x -= m;
-    //     r_y -= m;
-    //     return olc::vf2d(r_x * sin(t), r_y * cos(t));
-    // };
+    /// FillCircle(mouseX, mouseY, 10, olc::RED);
+    /// size_t segments = 100;
+    /// auto f          = [&](size_t arg) {
+    ///     double t   = arg * 2 * M_PI / segments;
+    ///     double r_x = ScreenWidth() * 0.5;
+    ///     double r_y = ScreenHeight() * 0.5;
+    ///     double m   = std::min(r_x, r_y) * 0.1;
+    ///     r_x -= m;
+    ///     r_y -= m;
+    ///     return olc::vf2d(r_x * sin(t), r_y * cos(t));
+    /// };
 
-    // for(size_t i = 0; i < segments; i++)
-    // {
-    //     auto a = f(i);
-    //     auto b = f((i + 1) % segments);
-    //     this->FillLine(a, b, 10);
-    // }
+    /// for(size_t i = 0; i < segments; i++)
+    /// {
+    ///     auto a = f(i);
+    ///     auto b = f((i + 1) % segments);
+    ///     this->FillLine(a, b, 10);
+    /// }
 
     return true;
 }
@@ -135,7 +135,7 @@ olc::Pixel operator+(olc::Pixel const& a, olc::Pixel const& b)
     return olc::Pixel(a.r + b.r, a.g + b.g, a.b + b.b, a.a + b.a);
 }
 
-// correctly blends color; see: https://www.youtube.com/watch?v=LKnqECcg6Gw
+/// correctly blends color; see: https://www.youtube.com/watch?v=LKnqECcg6Gw
 olc::Pixel average(olc::Pixel const& left, olc::Pixel const& right, double weightA, double weightB)
 {
     uint8_t r = (uint8_t)sqrt((uint64_t)left.r * left.r * weightA + (uint64_t)right.r * right.r * weightB);

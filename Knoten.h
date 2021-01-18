@@ -17,32 +17,32 @@ class Knoten
 public:
     /***  öffentliche Attribute  ***/
 
-    // Name des Knotens
+    /// Name des Knotens
     std::string name;
 
-    // Koordinaten des Knotens
+    /// Koordinaten des Knotens
     double xKoo, yKoo;
 
     double nodeScale = 20;
 
     /***  Konstruktoren  ***/
 
-    // Standard- und Initialisierungskonstruktor
+    /// Standard- und Initialisierungskonstruktor
     Knoten(std::string const& argName = "", double argX = 0, double argY = 0)
         : name(argName)
         , xKoo(argX)
         , yKoo(argY)
     {
-        // for validity upon saving, replace all spaces (remove them)
+        /// for validity upon saving, replace all spaces (remove them)
         std::replace(name.begin(), name.end(), ' ', '_');
     }
 
     /***  Vergleichsoperatoren  ***/
 
-    // lexikografischer Vergleich
+    /// lexikografischer Vergleich
     bool operator<(Knoten const& knoten) const { return name < knoten.name; }
 
-    // lexikografischer Vergleich
+    /// lexikografischer Vergleich
     bool operator==(Knoten const& knoten) const { return name == knoten.name; }
 
     /***  Ausgabe auf ostream  ***/
@@ -62,4 +62,4 @@ public:
         name = str;
     }
 
-}; // class Knoten
+}; /// class Knoten

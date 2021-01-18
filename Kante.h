@@ -17,18 +17,18 @@ class Kante
 public:
     /***  öffentliche Attribute  ***/
 
-    // Name der Kante
+    /// Name der Kante
     std::string name;
 
-    // Indizes der Endknoten
+    /// Indizes der Endknoten
     knotenIndex iFuss, iKopf;
 
-    // Gewicht der Kante
+    /// Gewicht der Kante
     double gewicht;
 
     /***  Konstruktoren  ***/
 
-    // Standard- und Initialisierungskonstruktor
+    /// Standard- und Initialisierungskonstruktor
     Kante(std::string const& argName = "",
           knotenIndex argFuss        = knotenIndex::KEIN_INDEX,
           knotenIndex argKopf        = knotenIndex::KEIN_INDEX,
@@ -47,4 +47,4 @@ public:
 
     void draw(Aether& aether, const Graph* const graph) const;
 
-}; // class Kante
+}; /// class Kante

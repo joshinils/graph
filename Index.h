@@ -2,14 +2,14 @@
 
 class Kante;
 class Knoten;
-#include <climits> // UINT_MAX
-#include <cstddef> // size_t
+#include <climits> /// UINT_MAX
+#include <cstddef> /// size_t
 #include <vector>
 
-// size_t but named differently
+/// size_t but named differently
 struct Index
 {
-    // ungültiger Sonderwert für Indizes
+    /// ungültiger Sonderwert für Indizes
     const static Index KEIN_INDEX;
 
     size_t idx;
@@ -50,11 +50,11 @@ struct Index
         return *this;
     }
 
-    // friend Index operator+(Index lhs, const Index& rhs)
-    // {
-    //     lhs += rhs;
-    //     return lhs;
-    // }
+    /// friend Index operator+(Index lhs, const Index& rhs)
+    /// {
+    ///     lhs += rhs;
+    ///     return lhs;
+    /// }
 
     bool operator==(Index const& other) const { return this->idx == other.idx; }
     bool operator!=(Index const& other) const { return this->idx != other.idx; }

@@ -8,7 +8,7 @@
 int main(int narg, char* argv[])
 try
 {
-    // gebe Usage aus
+    /// gebe Usage aus
     if(narg < 2)
     {
         std::cout << "usage: " << argv[0] << "  dateiname [ungerichtet]" << '\n';
@@ -40,7 +40,7 @@ try
 
     return 0;
 
-} // main()
+} /// main()
 
 catch(char const text[])
 {
